@@ -11,7 +11,7 @@ Source: `src/App.tsx` and `index.html`.
 - **Product name:** Luma AI
 - **Category:** Automated KOL (Key Opinion Leader) trading agent
 - **Primary chain:** RobinHood
-- **Contract address (CA):** `7Li45Pb97GLL8NLD8kVCabrWHE8RDuZpDdYRn38Lpump`
+- **Contract address (CA):** TBA (placeholder — not yet announced)
 
 ---
 
@@ -37,7 +37,7 @@ Source: `src/App.tsx` and `index.html`.
 
 **Buttons:** Documentation · Get Started
 
-**Contract label:** CA - `7Li45Pb97GLL8NLD8kVCabrWHE8RDuZpDdYRn38Lpump`
+**Contract label:** CA - TBA
 
 ---
 

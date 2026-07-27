@@ -379,7 +379,7 @@ const App: React.FC = () => {
       {/* CA Section */}
       <div className="opacity-0 animate-fade-in flex items-center justify-center gap-3" style={{animationDelay: '0.6s'}}>
         <span className="text-sm font-medium text-zinc-500 font-poppins tracking-wide">CA -</span>
-        <span className="text-sm font-medium text-zinc-400 font-mono tracking-wide" id="ca-address">7Li45Pb97GLL8NLD8kVCabrWHE8RDuZpDdYRn38Lpump</span>
+        <span className="text-sm font-medium text-zinc-400 font-mono tracking-wide" id="ca-address">TBA</span>
         <button
           className="group/copy flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:bg-white/10 hover:text-white transition-colors focus:outline-none relative"
           aria-label="Copy CA"

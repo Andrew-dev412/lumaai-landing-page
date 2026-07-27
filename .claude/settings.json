@@ -8,7 +8,9 @@
       "Bash(node -e ' *)",
       "Bash(grep -rn '\\\\bSOL\\\\b\\\\|$SOL\\\\|sol_bot\\\\|pump\\\\b' src/App.tsx)",
       "Bash(git rm *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(nslookup -type=A uselumaai.xyz 8.8.8.8)",
+      "Bash(nslookup -type=CNAME www.uselumaai.xyz 8.8.8.8)"
     ]
   }
 }
