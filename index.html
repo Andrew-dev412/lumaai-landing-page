@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" class="dark" style="background: #000000;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#000000" />
+    <style>
+      html, body { background: #000000; }
+      #root { background: transparent; }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luma AI - Automated KOL Trading</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <!-- Aura Build FxFilter -->
+    <script src="https://www.aura.build/FxFilter.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              geist: ['Geist', 'sans-serif'],
+              roboto: ['Roboto', 'sans-serif'],
+              montserrat: ['Montserrat', 'sans-serif'],
+              poppins: ['Poppins', 'sans-serif'],
+              playfair: ['Playfair Display', 'serif'],
+              'instrument-serif': ['Instrument Serif', 'serif'],
+              merriweather: ['Merriweather', 'serif'],
+              bricolage: ['Bricolage Grotesque', 'sans-serif'],
+              jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+              manrope: ['Manrope', 'sans-serif'],
+              'space-grotesk': ['Space Grotesk', 'sans-serif'],
+              'work-sans': ['Work Sans', 'sans-serif'],
+              'pt-serif': ['PT Serif', 'serif'],
+              'geist-mono': ['Geist Mono', 'monospace'],
+              'space-mono': ['Space Mono', 'monospace'],
+              quicksand: ['Quicksand', 'sans-serif'],
+              nunito: ['Nunito', 'sans-serif'],
+              newsreader: ['Newsreader', 'serif'],
+              'google-sans-flex': ['Google Sans Flex', 'sans-serif'],
+              oswald: ['Oswald', 'sans-serif'],
+              'dm-sans': ['DM Sans', 'sans-serif'],
+              cormorant: ['Cormorant Garamond', 'serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 1s ease-out forwards',
+              'beam-spin': 'beam-spin 3s linear infinite',
+              'dots-move': 'dots-move 8s linear infinite',
+              'marquee': 'marquee 30s linear infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)', filter: 'blur(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+              },
+              'beam-spin': {
+                to: { transform: 'rotate(360deg)' },
+              },
+              'dots-move': {
+                '0%': { backgroundPosition: '0 0' },
+                '100%': { backgroundPosition: '24px 24px' },
+              },
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+      /* Custom styles for smoother rendering */
+      body {
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      }
+
+      .gradient-text {
+        background: linear-gradient(to bottom, #ffffff 40%, #a1a1aa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .planetary-glow {
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 30%, transparent 70%);
+      }
+
+      .spotlight-card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        z-index: -1;
+        background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 150px);
+        opacity: 0;
+        transition: opacity 0.3s;
+        border-radius: inherit;
+      }
+
+      .spotlight-card:hover::before {
+        opacity: 1;
+      }
+
+      .spotlight-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: black;
+        border-radius: inherit;
+      }
+
+      .spotlight-bg {
+        background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.03), transparent 40%);
+      }
+
+      /* 3D Card Hover Effect */
+      .card-3d-wrapper {
+        perspective: 1000px;
+      }
+
+      .card-3d {
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+        transform-style: preserve-3d;
+      }
+
+      .card-3d:hover {
+        transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+        box-shadow: 0 20px 40px -5px rgba(255, 255, 255, 0.05);
+      }
+
+      .invisible {
+        visibility: hidden !important;
+      }
+
+      /* Font utility classes */
+      .font-geist { font-family: 'Geist', sans-serif !important; }
+      .font-roboto { font-family: 'Roboto', sans-serif !important; }
+      .font-montserrat { font-family: 'Montserrat', sans-serif !important; }
+      .font-poppins { font-family: 'Poppins', sans-serif !important; }
+      .font-playfair { font-family: 'Playfair Display', serif !important; }
+      .font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+      .font-merriweather { font-family: 'Merriweather', serif !important; }
+      .font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+      .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+      .font-manrope { font-family: 'Manrope', sans-serif !important; }
+      .font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+      .font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+      .font-pt-serif { font-family: 'PT Serif', serif !important; }
+      .font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+      .font-space-mono { font-family: 'Space Mono', monospace !important; }
+      .font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+      .font-nunito { font-family: 'Nunito', sans-serif !important; }
+      .font-newsreader { font-family: 'Newsreader', serif !important; }
+      .font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }
+      .font-oswald { font-family: 'Oswald', sans-serif !important; }
+      .font-dm-sans { font-family: 'DM Sans', sans-serif !important; }
+      .font-cormorant { font-family: 'Cormorant Garamond', serif !important; }
+    </style>
+  </head>
+  <body class="antialiased min-h-screen overflow-x-hidden selection:bg-white/20 text-white bg-[#000000]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

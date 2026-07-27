@@ -1,0 +1,2146 @@
+<html lang="en" class="dark"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbito - Personal Brand Builder</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+},
+animation: {
+'fade-in': 'fadeIn 1s ease-out forwards',
+'beam-spin': 'beam-spin 3s linear infinite',
+'dots-move': 'dots-move 8s linear infinite',
+'marquee': 'marquee 30s linear infinite',
+},
+keyframes: {
+fadeIn: {
+'0%': { opacity: '0', transform: 'translateY(10px)', filter: 'blur(10px)' },
+'100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+},
+'beam-spin': {
+to: { transform: 'rotate(360deg)' },
+},
+'dots-move': {
+'0%': { backgroundPosition: '0 0' },
+'100%': { backgroundPosition: '24px 24px' },
+},
+marquee: {
+'0%': { transform: 'translateX(0%)' },
+'100%': { transform: 'translateX(-50%)' },
+}
+}
+}
+}
+}
+</script>
+<style>
+/* Custom styles for smoother rendering */
+body { font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
+.gradient-text {
+background: linear-gradient(to bottom, #ffffff 40%, #a1a1aa 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.planetary-glow {
+background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 30%, transparent 70%);
+}
+.spotlight-card::before {
+content: "";
+position: absolute;
+inset: -1px;
+z-index: -1;
+background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 150px);
+opacity: 0;
+transition: opacity 0.3s;
+border-radius: inherit;
+}
+.spotlight-card:hover::before {
+opacity: 1;
+}
+.spotlight-card::after {
+content: "";
+position: absolute;
+inset: 0;
+z-index: -1;
+background: black;
+border-radius: inherit;
+}
+.spotlight-bg {
+background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.03), transparent 40%);
+}
+/* 3D Card Hover Effect */
+.card-3d-wrapper {
+perspective: 1000px;
+}
+.card-3d {
+transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+transform-style: preserve-3d;
+}
+.card-3d:hover {
+transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+box-shadow: 0 20px 40px -5px rgba(255, 255, 255, 0.05);
+}
+</style>
+<style id="aura-editor-visibility-style">
+.invisible { visibility: hidden !important; }
+</style>
+<script src="https://www.aura.build/FxFilter.js"></script>
+  <link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">
+.font-roboto { font-family: 'Roboto', sans-serif !important; }
+</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">
+.font-montserrat { font-family: 'Montserrat', sans-serif !important; }
+</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">
+.font-poppins { font-family: 'Poppins', sans-serif !important; }
+</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">
+.font-playfair { font-family: 'Playfair Display', serif !important; }
+</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">
+.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">
+.font-merriweather { font-family: 'Merriweather', serif !important; }
+</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">
+.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">
+.font-manrope { font-family: 'Manrope', sans-serif !important; }
+</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">
+.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">
+.font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">
+.font-pt-serif { font-family: 'PT Serif', serif !important; }
+</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">
+.font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">
+.font-space-mono { font-family: 'Space Mono', monospace !important; }
+</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">
+.font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">
+.font-nunito { font-family: 'Nunito', sans-serif !important; }
+</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">
+.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }
+</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">
+.font-oswald { font-family: 'Oswald', sans-serif !important; }
+</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">
+.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">
+.font-roboto { font-family: 'Roboto', sans-serif !important; }
+</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">
+.font-montserrat { font-family: 'Montserrat', sans-serif !important; }
+</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">
+.font-poppins { font-family: 'Poppins', sans-serif !important; }
+</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">
+.font-playfair { font-family: 'Playfair Display', serif !important; }
+</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">
+.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">
+.font-merriweather { font-family: 'Merriweather', serif !important; }
+</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">
+.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">
+.font-manrope { font-family: 'Manrope', sans-serif !important; }
+</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">
+.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">
+.font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">
+.font-pt-serif { font-family: 'PT Serif', serif !important; }
+</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">
+.font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">
+.font-space-mono { font-family: 'Space Mono', monospace !important; }
+</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">
+.font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">
+.font-nunito { font-family: 'Nunito', sans-serif !important; }
+</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">
+.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }
+</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">
+.font-oswald { font-family: 'Oswald', sans-serif !important; }
+</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">
+.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">
+.font-roboto { font-family: 'Roboto', sans-serif !important; }
+</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">
+.font-montserrat { font-family: 'Montserrat', sans-serif !important; }
+</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">
+.font-poppins { font-family: 'Poppins', sans-serif !important; }
+</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">
+.font-playfair { font-family: 'Playfair Display', serif !important; }
+</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">
+.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">
+.font-merriweather { font-family: 'Merriweather', serif !important; }
+</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">
+.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">
+.font-manrope { font-family: 'Manrope', sans-serif !important; }
+</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">
+.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">
+.font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">
+.font-pt-serif { font-family: 'PT Serif', serif !important; }
+</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">
+.font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">
+.font-space-mono { font-family: 'Space Mono', monospace !important; }
+</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">
+.font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">
+.font-nunito { font-family: 'Nunito', sans-serif !important; }
+</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">
+.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }
+</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">
+.font-oswald { font-family: 'Oswald', sans-serif !important; }
+</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">
+.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">
+.font-roboto { font-family: 'Roboto', sans-serif !important; }
+</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">
+.font-montserrat { font-family: 'Montserrat', sans-serif !important; }
+</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">
+.font-poppins { font-family: 'Poppins', sans-serif !important; }
+</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">
+.font-playfair { font-family: 'Playfair Display', serif !important; }
+</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">
+.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">
+.font-merriweather { font-family: 'Merriweather', serif !important; }
+</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">
+.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">
+.font-manrope { font-family: 'Manrope', sans-serif !important; }
+</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">
+.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">
+.font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">
+.font-pt-serif { font-family: 'PT Serif', serif !important; }
+</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">
+.font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">
+.font-space-mono { font-family: 'Space Mono', monospace !important; }
+</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">
+.font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">
+.font-nunito { font-family: 'Nunito', sans-serif !important; }
+</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">
+.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }
+</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">
+.font-oswald { font-family: 'Oswald', sans-serif !important; }
+</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">
+.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style></head>
+  <body class="antialiased min-h-screen overflow-x-hidden selection:bg-white/20 text-white bg-[#000000]">
+
+
+
+
+<!-- Background (component) added by Aura -->
+<div class="aura-background-component top-0 w-full h-screen -z-10 absolute brightness-50 opacity-90 hue-rotate-15 saturate-50" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div class="aura-background-component top-0 w-full -z-10 absolute h-full">
+  <div data-us-project="4gq2Yrv2p0bIa0hdLPQx" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+  <script type="text/javascript">
+    !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+  </script>
+</div></div>
+    
+    
+
+
+
+
+    <!-- Navbar -->
+    <nav class="fixed -translate-x-1/2 z-50 flex gap-3 shadow-black/40 transition-all duration-300 md:gap-6 bg-black/60 w-[92%] max-w-fit border-white/10 border rounded-full pt-2 pr-2 pb-2 pl-4 top-6 left-1/2 shadow-2xl backdrop-blur-xl gap-x-3 gap-y-3 items-center justify-between">
+      <div class="flex shrink-0 items-center gap-2">
+        <div class="flex shadow-white/10 text-black w-10 h-10 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ee5fbe75-c4d0-403a-9ee7-e720478aac2b_3840w.jpg)] bg-cover rounded-full ring-0 shadow-lg items-center justify-center" style=""></div>
+        <span class="hidden font-medium tracking-tight text-white font-poppins md:block">
+          Luma AI
+        </span>
+      </div>
+
+      <div class="hidden items-center gap-0.5 rounded-full border border-white/5 bg-white/5 px-2 py-1 md:flex">
+        <a href="#" class="rounded-full px-3 py-1.5 text-xs font-medium text-zinc-400 transition-colors hover:bg-white/10 hover:text-white font-poppins">
+          Home
+        </a>
+        <a href="#" class="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
+          Agent
+        </a>
+        <a href="#" class="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
+          Setup
+        </a>
+        <a href="#" class="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
+          Dapp
+        </a><a href="#" class="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">Why?</a>
+        <a href="#" class="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
+          $CRTXA
+        </a>
+        <a href="#" class="rounded-full px-3 py-1.5 text-xs font-medium text-zinc-400 transition-colors hover:bg-white/10 hover:text-white font-poppins">
+          Roadmap
+        </a>
+        <a href="#" class="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full px-3 py-1.5">
+          FAQs
+        </a>
+        <a href="#" class="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
+          Links
+        </a>
+      </div>
+
+      <div class="flex shrink-0 items-center gap-2">
+        <button class="shiny-cta-bw inline-flex whitespace-nowrap transition-all hover:scale-105 focus:outline-none text-xs font-semibold text-white font-poppins rounded-full pt-2 pr-5 pb-2 pl-5 relative items-center justify-center" style="--gradient-shine: #ffffff">
+          <style>
+            @property --gradient-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+            @property --gradient-angle-offset { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+            @property --gradient-percent { syntax: "<percentage>"; initial-value: 20%; inherits: false; }
+            @property --gradient-shine { syntax: "<color>"; initial-value: #ffffff; inherits: false; }
+
+            .shiny-cta-bw {
+                --gradient-angle: 0deg;
+                --gradient-angle-offset: 0deg;
+                --gradient-percent: 20%;
+                --gradient-shine: #ffffff;
+                background: linear-gradient(#000000, #000000) padding-box,
+                            conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+                            transparent 0%, #333333 5%, var(--gradient-shine) 15%, #333333 30%, transparent 40%, transparent 100%) border-box;
+                border: 1px solid transparent;
+                box-shadow: inset 0 0 0 1px #1a1818;
+                animation: border-spin 2.5s linear infinite;
+            }
+
+            @keyframes border-spin { to { --gradient-angle: 360deg; } }
+
+            .shiny-cta-bw::before {
+                content: '';
+                pointer-events: none;
+                position: absolute;
+                inset: 0;
+                border-radius: 9999px;
+                padding: 1px;
+                background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+                opacity: 0.5;
+                z-index: -1;
+            }
+
+            .shiny-cta-bw span::before {
+                content: '';
+                pointer-events: none;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                width: 140%;
+                height: 140%;
+                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .shiny-cta-bw:hover span::before {
+                opacity: 1;
+            }
+          </style>
+          <span class="z-10 relative">Launch Agent</span>
+        </button>
+
+        <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-400 transition-colors hover:bg-white/10 hover:text-white md:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-4 w-4">
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Hero -->
+    <main class="flex flex-col min-h-screen md:px-6 md:pb-1 rounded-none pt-32 pr-4 pb-12 pl-4 relative items-center justify-center">
+      <!-- Shooting Star Effect (Background Decoration) -->
+      <div class="absolute top-20 left-[20%] w-[1px] h-32 bg-gradient-to-b from-transparent via-white/20 to-transparent rotate-[-45deg] opacity-30"></div>
+      <div class="absolute top-40 right-[30%] w-[1px] h-48 bg-gradient-to-b from-transparent via-white/10 to-transparent rotate-[-30deg] opacity-20" style=""></div>
+
+      <!-- Pill Badge -->
+      <div class="animate-fade-in flex hover:bg-white/10 transition-colors cursor-default bg-white/5 opacity-0 w-fit border-white/10 border rounded-full mb-8 pt-1 pr-1 pb-1 pl-1 gap-y-2 items-center gap-x-2" style="animation-delay: 0.2s">
+        <span class="text-xs font-medium text-zinc-400 font-poppins pr-3 pl-3">Optimal Entries, Every Time</span>
+      </div>
+
+      <!-- Hero Title -->
+      <h1 class="animate-fade-in leading-[1.1] gradient-text md:text-7xl text-5xl font-semibold tracking-tighter font-montserrat text-center opacity-0 max-w-4xl mb-6 pt-3 pb-3" style="animation-delay: 0.3s">
+  Never Miss Another KOL Call Again
+</h1>
+
+      <!-- Subtitle -->
+      <p class="animate-fade-in md:text-lg leading-relaxed text-base text-zinc-400 font-poppins text-center opacity-0 max-w-2xl mb-10" style="animation-delay: 0.4s">AI-powered automation that monitors your favorite KOL calls across Telegram and Twitter 24/7 and executes automatically, capturing optimal entries before manual traders arrive.</p>
+
+      <!-- CTA Buttons -->
+      <div class="opacity-0 animate-fade-in flex flex-col sm:flex-row items-center gap-4 mb-20" style="animation-delay: 0.5s;">
+        <!-- Main Button (White) -->
+        <button class="hover:bg-zinc-200 transition-all hover:scale-[1.02] flex text-sm font-semibold text-black font-poppins bg-white h-12 rounded-full pr-8 pl-8 items-center justify-center">
+          Documentation
+        </button>
+
+        <!-- Secondary Button (Animated Beam Component) -->
+        <button class="group flex overflow-hidden uppercase transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)] focus:outline-none text-sm font-medium text-white tracking-wider rounded-full h-12 px-8 relative items-center justify-center">
+          <!-- Full Border Beam -->
+          <div class="absolute inset-0 -z-20 rounded-full overflow-hidden p-[1px]">
+            <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#ffffff_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
+            <div class="absolute inset-[1px] rounded-full bg-black"></div>
+          </div>
+
+          <!-- Inner Background & Effects -->
+          <div class="-z-10 overflow-hidden bg-black rounded-full absolute top-[2px] right-[2px] bottom-[2px] left-[2px]">
+            <div class="absolute inset-0 bg-gradient-to-b from-zinc-800/60 to-transparent" style=""></div>
+            <div class="animate-dots-move opacity-30 mix-blend-overlay absolute top-0 right-0 bottom-0 left-0" style="background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 12px 12px"></div>
+          </div>
+
+          <!-- Content -->
+          <span class="transition-colors group-hover:text-white capitalize text-zinc-300 font-poppins z-10 relative">
+            Get Started
+          </span>
+        </button>
+      </div>
+
+      <!-- Trusted Projects Marquee (POPULATED) -->
+      <div class="grid grid-cols-1 animate-fade-in md:grid-cols-3 font-geist-mono opacity-0 w-full max-w-5xl mr-auto ml-auto pt-10 pr-4 pb-20 pl-4 gap-x-8 gap-y-8" style="animation-delay: 0.8s">
+        <!-- Stat 1 -->
+        <div class="group flex items-center justify-center gap-3 transition-transform duration-300 hover:-translate-y-2 cursor-default">
+          <span class="md:text-6xl tabular-nums text-5xl font-semibold text-zinc-100 tracking-tighter font-montserrat">
+            <span class="counter font-montserrat" data-target="2361">2361</span>
+          </span>
+          <span class="leading-tight text-sm font-medium text-zinc-400 font-poppins max-w-[80px]">
+            Calls Detected
+          </span>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="group flex items-center justify-center gap-3 transition-transform duration-300 hover:-translate-y-2 cursor-default">
+          <span class="md:text-6xl tabular-nums text-5xl font-semibold text-zinc-100 tracking-tighter font-montserrat">
+            <span class="counter font-montserrat" data-target="15">15</span>
+            K+
+          </span>
+          <span class="leading-tight text-sm font-medium text-zinc-400 font-poppins max-w-[80px]">
+            Trades Executed
+          </span>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="group flex items-center justify-center gap-3 transition-transform duration-300 hover:-translate-y-2 cursor-default">
+          <span class="md:text-6xl tabular-nums text-5xl font-semibold text-zinc-100 tracking-tighter font-montserrat">
+            <span class="counter font-montserrat" data-target="150">150</span>
+            +
+          </span>
+          <span class="leading-tight text-sm font-medium text-zinc-400 font-poppins max-w-[80px]">
+            Sources Monitored
+          </span>
+        </div>
+      </div>
+
+      <div class="opacity-0 animate-fade-in w-full max-w-5xl mx-auto relative overflow-hidden mb-24 mt-20" style="animation-delay: 1.0s;">
+        <!-- Gradient Masks for Fade In/Out -->
+        <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-black via-black/90 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black via-black/90 to-transparent z-10 pointer-events-none"></div>
+
+        <!-- Scrolling Content -->
+        <div class="flex animate-marquee hover:opacity-80 transition-opacity duration-500 hover:grayscale-0 opacity-40 w-max h-12 grayscale items-center">
+          <!-- Logos Set 1 -->
+
+          <!-- Logos Set 2 (Duplicate) -->
+          <div class="flex pr-8 pl-8 gap-x-20 gap-y-20 items-center">
+  
+  <!-- Heading/Label -->
+  <div class="flex items-center gap-4 opacity-60">
+    <span class="text-xs font-semibold text-zinc-500 uppercase tracking-[0.2em] font-poppins whitespace-nowrap">Supported Chains</span>
+    <div class="h-8 w-px bg-gradient-to-b from-transparent via-zinc-700 to-transparent"></div>
+  </div>
+
+  <!-- RobinHood (Active) -->
+  <div class="flex items-center gap-3 group cursor-pointer transition-all hover:scale-105 hover:opacity-100">
+    <iconify-icon icon="simple-icons:robinhood" width="28" class="text-white"></iconify-icon>
+    <span class="text-lg font-medium font-montserrat tracking-tight text-white">RobinHood</span>
+  </div>
+
+  <!-- Ethereum (Locked) -->
+  <div class="flex items-center gap-3 group cursor-not-allowed opacity-70 hover:opacity-100 transition-all grayscale">
+    <div class="relative">
+      <iconify-icon icon="simple-icons:ethereum" width="28" class="text-white"></iconify-icon>
+      <div class="absolute -top-2 -right-2 bg-black/90 rounded-full p-[2px] border border-zinc-800 shadow-lg z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" class=""></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+    </div>
+    <span class="text-lg font-normal font-montserrat tracking-tight text-zinc-400">Ethereum</span>
+  </div>
+
+  <!-- BSC (Locked) -->
+  <div class="flex items-center gap-3 group cursor-not-allowed opacity-70 hover:opacity-100 transition-all grayscale">
+    <div class="relative">
+      <iconify-icon icon="simple-icons:binance" width="28" class="text-white"></iconify-icon>
+      <div class="absolute -top-2 -right-2 bg-black/90 rounded-full p-[2px] border border-zinc-800 shadow-lg z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+    </div>
+    <span class="text-lg font-normal font-montserrat tracking-tight text-zinc-400">BSC</span>
+  </div>
+
+  <!-- Matic (Locked) -->
+  <div class="flex items-center gap-3 group cursor-not-allowed opacity-70 hover:opacity-100 transition-all grayscale">
+    <div class="relative">
+      <iconify-icon icon="simple-icons:polygon" width="28" class="text-white"></iconify-icon>
+      <div class="absolute -top-2 -right-2 bg-black/90 rounded-full p-[2px] border border-zinc-800 shadow-lg z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" class=""></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+    </div>
+    <span class="text-lg font-normal font-montserrat tracking-tight text-zinc-400">Polygon</span>
+  </div>
+
+  <!-- Base (Locked) -->
+  <div class="flex items-center gap-3 group cursor-not-allowed opacity-70 hover:opacity-100 transition-all grayscale">
+    <div class="relative">
+      <iconify-icon icon="simple-icons:base" width="28" class="text-white"></iconify-icon>
+      <div class="absolute -top-2 -right-2 bg-black/90 rounded-full p-[2px] border border-zinc-800 shadow-lg z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+    </div>
+    <span class="text-lg font-normal font-montserrat tracking-tight text-zinc-400">Base</span>
+  </div>
+
+  <!-- Arbitrum (Locked) -->
+  <div class="flex items-center gap-3 group cursor-not-allowed opacity-70 hover:opacity-100 transition-all grayscale">
+    <div class="relative">
+      <iconify-icon icon="simple-icons:arbitrum" width="28" class="text-white"></iconify-icon>
+      <div class="absolute -top-2 -right-2 bg-black/90 rounded-full p-[2px] border border-zinc-800 shadow-lg z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+    </div>
+    <span class="text-lg font-normal font-montserrat tracking-tight text-zinc-400">Arbitrum</span>
+  </div>
+
+</div>
+          <div class="flex gap-20 px-8 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="hover:text-white/80 transition-colors w-[36px] h-[36px]" data-icon-set="simple-icons" data-simple-icons="binance" stroke-width="2" data-icon-replaced="true" style="width: 36px; height: 36px; color: rgb(255, 255, 255)">
+              <path fill="currentColor" d="m16.624 13.92l2.718 2.716l-7.353 7.353l-7.353-7.352l2.717-2.717l4.636 4.66zm4.637-4.636L24 12l-2.715 2.716L18.568 12zm-9.272 0l2.716 2.692l-2.717 2.717L9.272 12zm-9.273 0L5.41 12l-2.692 2.692L0 12zM11.99.012l7.35 7.328l-2.717 2.715L11.99 5.42l-4.636 4.66l-2.717-2.716z" class=""></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="text-white hover:text-white/80 transition-colors" style="" data-icon-set="simple-icons" data-simple-icons="coinbase">
+              <path fill="currentColor" d="M4.844 11.053c-.872 0-1.553.662-1.553 1.548s.664 1.542 1.553 1.542s1.564-.667 1.564-1.547c0-.875-.664-1.543-1.564-1.543m.006 2.452c-.497 0-.86-.386-.86-.904c0-.523.357-.909.854-.909c.502 0 .866.392.866.91c0 .517-.364.903-.86.903m1.749-1.778h.433v2.36h.693V11.11H6.599zm-5.052-.035c.364 0 .653.224.762.558h.734c-.133-.713-.722-1.197-1.49-1.197c-.872 0-1.553.662-1.553 1.548c0 .887.664 1.543 1.553 1.543c.75 0 1.351-.484 1.484-1.203h-.728a.78.78 0 0 1-.756.564c-.502 0-.855-.386-.855-.904c0-.523.347-.909.85-.909zm18.215.622l-.508-.075c-.242-.035-.415-.115-.415-.305c0-.207.225-.31.53-.31c.336 0 .55.143.595.379h.67c-.075-.599-.537-.95-1.247-.95c-.733 0-1.218.375-1.218.904c0 .506.317.8.958.892l.508.075c.249.034.387.132.387.316c0 .236-.242.334-.577.334c-.41 0-.641-.167-.676-.42h-.681c.064.581.52.99 1.35.99c.757 0 1.26-.346 1.26-.938c0-.53-.364-.806-.936-.892M7.378 9.885a.43.43 0 0 0-.444.437c0 .254.19.438.444.438a.43.43 0 0 0 .445-.438a.43.43 0 0 0-.445-.437m10.167 2.245c0-.645-.392-1.076-1.224-1.076c-.785 0-1.224.397-1.31 1.007h.687c.035-.236.22-.432.612-.432c.352 0 .525.155.525.345c0 .248-.317.311-.71.351c-.531.058-1.19.242-1.19.933c0 .535.4.88 1.034.88c.497 0 .809-.207.965-.535c.023.293.242.483.548.483h.404v-.616h-.34zm-.68.748c0 .397-.347.69-.769.69c-.26 0-.48-.11-.48-.34c0-.293.353-.373.676-.408c.312-.028.485-.097.572-.23zm-3.679-1.825c-.386 0-.71.162-.94.432V9.856h-.693v4.23h.68v-.391c.232.282.56.449.953.449c.832 0 1.461-.656 1.461-1.543s-.64-1.548-1.46-1.548zm-.103 2.452c-.497 0-.86-.386-.86-.904c0-.517.369-.909.865-.909c.503 0 .855.386.855.91c0 .517-.364.903-.86.903m-3.187-2.452c-.45 0-.745.184-.919.443v-.385H8.29v2.975h.693v-1.617c0-.455.289-.777.716-.777c.398 0 .647.282.647.69v1.704h.692v-1.755c0-.748-.386-1.278-1.142-1.278M24 12.503c0-.851-.624-1.45-1.46-1.45c-.89 0-1.542.668-1.542 1.548c0 .927.698 1.543 1.553 1.543c.722 0 1.287-.426 1.432-1.03h-.722c-.104.264-.358.414-.699.414c-.445 0-.78-.276-.854-.76H24v-.264zm-2.252-.23c.11-.414.422-.615.78-.615c.392 0 .693.224.762.615Z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="text-white hover:text-white/80 transition-colors" style="" data-icon-set="simple-icons" data-simple-icons="ethereum">
+              <path fill="currentColor" d="M11.944 17.97L4.58 13.62L11.943 24l7.37-10.38l-7.372 4.35zM12.056 0L4.69 12.223l7.365 4.354l7.365-4.35z" class=""></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="text-white hover:text-white/80 transition-colors" style="" data-icon-set="simple-icons" data-simple-icons="solana">
+              <path fill="currentColor" d="m23.876 18.031l-3.962 4.14a.9.9 0 0 1-.306.21a.9.9 0 0 1-.367.074H.46a.47.47 0 0 1-.252-.073a.45.45 0 0 1-.17-.196a.44.44 0 0 1-.031-.255a.44.44 0 0 1 .117-.23l3.965-4.139a.9.9 0 0 1 .305-.21a.9.9 0 0 1 .366-.075h18.78a.47.47 0 0 1 .252.074a.45.45 0 0 1 .17.196a.44.44 0 0 1 .031.255a.44.44 0 0 1-.117.23m-3.962-8.335a.9.9 0 0 0-.306-.21a.9.9 0 0 0-.367-.075H.46a.47.47 0 0 0-.252.073a.45.45 0 0 0-.17.197a.44.44 0 0 0-.031.254a.44.44 0 0 0 .117.23l3.965 4.14a.9.9 0 0 0 .305.21a.9.9 0 0 0 .366.074h18.78a.47.47 0 0 0 .252-.073a.45.45 0 0 0 .17-.196a.44.44 0 0 0 .031-.255a.44.44 0 0 0-.117-.23zM.46 6.723h18.782a.9.9 0 0 0 .367-.075a.9.9 0 0 0 .306-.21l3.962-4.14a.44.44 0 0 0 .117-.23a.44.44 0 0 0-.032-.254a.45.45 0 0 0-.17-.196a.47.47 0 0 0-.252-.073H4.76a.9.9 0 0 0-.366.074a.9.9 0 0 0-.305.21L.125 5.97a.44.44 0 0 0-.117.23a.44.44 0 0 0 .03.254a.45.45 0 0 0 .17.196a.47.47 0 0 0 .252.074z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="text-white hover:text-white/80 transition-colors" style="" data-icon-set="simple-icons" data-simple-icons="polkadot">
+              <path fill="currentColor" d="M12 0c2.39 0 4.328 1.127 4.328 2.517S14.39 5.034 12 5.034S7.672 3.907 7.672 2.517S9.61 0 12 0m0 18.966c2.39 0 4.328 1.127 4.328 2.517S14.39 24 12 24s-4.328-1.127-4.328-2.517S9.61 18.966 12 18.966M1.606 6C2.8 3.93 4.747 2.816 5.952 3.511s1.212 2.937.017 5.007s-3.141 3.182-4.345 2.489S.411 8.07 1.606 6m16.427 9.483c1.2-2.07 3.139-3.184 4.343-2.489s1.211 2.936.016 5.006s-3.14 3.185-4.344 2.49s-1.211-2.937-.015-5.007m-16.409-2.49c1.205-.7 3.15.419 4.346 2.489s1.187 4.311-.018 5.007S2.8 20.07 1.607 18s-1.187-4.311.017-5.007m16.425-9.481c1.2-.695 3.149.419 4.344 2.489s1.188 4.311-.016 5.007s-3.148-.42-4.343-2.49s-1.188-4.311.015-5.006" class=""></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="text-white hover:text-white/80 transition-colors" style="" data-icon-set="simple-icons" data-simple-icons="chainlink">
+              <path fill="currentColor" d="M12 0L9.798 1.266l-6 3.468L1.596 6v12l2.202 1.266l6.055 3.468L12.055 24l2.202-1.266l5.945-3.468L22.404 18V6l-2.202-1.266l-6-3.468zM6 15.468V8.532l6-3.468l6 3.468v6.936l-6 3.468z"></path>
+            </svg>
+            <iconify-icon icon="simple-icons:uniswap" width="36" class="text-white hover:text-white/80 transition-colors"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATISTICS SECTION -->
+    </main>
+
+    <!-- FEATURES SECTION: GATEWAY TO AUTOMATION (Monochrome, with Spotlight) -->
+    <section class="w-full max-w-7xl z-10 border-white/5 border-t mr-auto ml-auto pt-32 pr-6 pb-32 pl-6 relative" id="features">
+      <div class="flex flex-col">
+        <!-- Top Part -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-16 items-center">
+          <div class="flex flex-col mx-5">
+            <span class="uppercase text-xs text-zinc-500 tracking-[0.2em] font-poppins mb-6">
+              AUTONOMOUS TRADING SYSTEM
+            </span>
+
+            <h2 class="md:text-5xl lg:text-6xl leading-[1.1] text-4xl text-white tracking-tighter font-montserrat mb-6">
+              Track Every
+              <span class="text-zinc-400">KOL</span>
+              Call
+              <br>
+              <span class="text-zinc-400">Trade</span>
+              Every Opportunity.
+            </h2>
+
+            <p class="md:text-base leading-relaxed text-sm text-zinc-400 font-poppins max-w-lg mb-10">
+              The agent monitors your favorite KOLs 24/7 across Telegram and
+              Twitter, capturing every call while you sleep, work, or stay
+              offline. Manual traders miss opportunities because they can't
+              watch around clock. You don't. The bot detects signals instantly,
+              executes in under 2 seconds, and secures optimal entries. No
+              manual copying. No missed calls. Just automated execution running
+              continuously.
+            </p>
+
+            <button class="group inline-flex overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] rounded-full p-[1px] relative items-center justify-center w-fit mb-3">
+  <!-- Spinning Border Beam (Visible on Hover) -->
+  <span class="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,#ffffff_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+  
+  <!-- Default Static Border -->
+  <span class="absolute inset-0 rounded-full bg-zinc-800 transition-opacity duration-300 group-hover:opacity-0"></span>
+  
+  <!-- 3D Button Surface & Content -->
+  <span class="flex items-center justify-center gap-2 uppercase transition-colors duration-300 group-hover:text-white text-xs font-medium text-zinc-400 tracking-widest bg-gradient-to-b from-zinc-800 to-zinc-950 w-full h-full rounded-full py-2.5 px-6 relative shadow-[inset_0_1px_0_rgba(255,255,255,0.3)]">
+    <span class="font-poppins z-10 relative">LAUNCH AGENET</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 transition-transform duration-300 group-hover:translate-x-0.5">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</button>
+          </div>
+
+          <!-- Abstract Visual (Right) -->
+          <div class="flex w-full h-[400px] pl-1 relative perspective-[1000px] items-center justify-center">
+            <style>
+              @keyframes flowBeam {
+                  0% { stroke-dashoffset: 300; opacity: 0; }
+                  20% { opacity: 1; }
+                  80% { opacity: 1; }
+                  100% { stroke-dashoffset: 0; opacity: 0; }
+              }
+              @keyframes pulse-ring {
+                  0% { transform: scale(0.8); opacity: 0.5; }
+                  100% { transform: scale(1.3); opacity: 0; }
+              }
+              .noodle-beam {
+                  stroke-dasharray: 60 300;
+                  animation: flowBeam 3s linear infinite;
+              }
+            </style>
+
+            <!-- Ambient Glow -->
+            <div class="absolute inset-0 bg-radial-gradient from-white/5 via-transparent to-transparent blur-3xl pointer-events-none"></div>
+
+            <!-- Data Noodles (SVG Layer) -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="noodle-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color: #ffffff; stop-opacity: 0.1"></stop>
+                  <stop offset="100%" style="stop-color: #a1a1aa; stop-opacity: 0.1"></stop>
+                </linearGradient>
+                <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+                </filter>
+              </defs>
+
+              <!-- Connection 1: Telegram (Top Left) to Bot -->
+              <path d="M 150 120 C 200 120 220 200 300 200" stroke="url(#noodle-gradient)" stroke-width="2" fill="none"></path>
+              <path d="M 150 120 C 200 120 220 200 300 200" stroke="#a1a1aa" stroke-width="3" fill="none" class="noodle-beam" stroke-linecap="round" filter="url(#glow-filter)"></path>
+
+              <!-- Connection 2: Twitter (Top Right) to Bot -->
+              <path d="M 450 120 C 400 120 380 200 300 200" stroke="url(#noodle-gradient)" stroke-width="2" fill="none"></path>
+              <path d="M 450 120 C 400 120 380 200 300 200" stroke="#71717a" stroke-width="3" fill="none" class="noodle-beam" stroke-linecap="round" style="animation-delay: 1s;" filter="url(#glow-filter)"></path>
+
+              <!-- Connection 3: Bot to Execution Left (Bottom Left) -->
+              <path d="M 300 200 C 280 260 200 280 150 320" stroke="url(#noodle-gradient)" stroke-width="2" fill="none"></path>
+              <path d="M 300 200 C 280 260 200 280 150 320" stroke="#52525b" stroke-width="3" fill="none" class="noodle-beam" stroke-linecap="round" style="animation-delay: 0.5s;" filter="url(#glow-filter)"></path>
+
+              <!-- Connection 4: Bot to Execution Right (Bottom Right) -->
+              <path d="M 300 200 C 320 260 400 280 450 320" stroke="url(#noodle-gradient)" stroke-width="2" fill="none"></path>
+              <path d="M 300 200 C 320 260 400 280 450 320" stroke="#52525b" stroke-width="3" fill="none" class="noodle-beam" stroke-linecap="round" style="animation-delay: 1.5s;" filter="url(#glow-filter)"></path>
+            </svg>
+
+            <!-- Source Node: Telegram (Top Left) -->
+            <div class="absolute left-[25%] top-[25%] -translate-x-1/2 -translate-y-1/2 z-20">
+              <div class="flex bg-zinc-900/90 w-12 h-12 border-zinc-700 border rounded-2xl relative shadow-lg shadow-white/5 backdrop-blur-sm items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send text-zinc-400">
+                  <line x1="22" x2="11" y1="2" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" class=""></polygon>
+                </svg>
+                <!-- Label -->
+                <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-zinc-800 rounded text-[10px] font-medium text-white whitespace-nowrap border border-zinc-700">
+                  Telegram
+                </div>
+              </div>
+            </div>
+
+            <!-- Source Node: Twitter (Top Right) -->
+            <div class="absolute left-[75%] top-[25%] -translate-x-1/2 -translate-y-1/2 z-20">
+              <div class="relative w-12 h-12 bg-zinc-900/90 rounded-2xl border border-zinc-700 flex items-center justify-center shadow-lg shadow-white/5 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter w-[20px] h-[20px]" data-icon-replaced="true" style="width: 20px; height: 20px; color: rgb(161, 161, 170)">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" class=""></path>
+                </svg>
+                <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-zinc-800 rounded text-[10px] font-medium text-white whitespace-nowrap border border-zinc-700">
+                  Twitter
+                </div>
+              </div>
+            </div>
+
+            <!-- Central Intelligence Node -->
+            <div class="relative w-24 h-24 z-30 flex items-center justify-center">
+              <!-- Pulsing Rings -->
+              <div class="absolute inset-0 rounded-full bg-white/5 animate-[ping_3s_linear_infinite]"></div>
+              <div class="absolute inset-0 rounded-full border border-white/10 scale-110 opacity-50"></div>
+
+              <!-- Core -->
+              <div class="relative w-20 h-20 bg-black rounded-full border border-zinc-700 flex items-center justify-center shadow-[0_0_50px_-10px_rgba(255,255,255,0.2)] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-zinc-800 to-black opacity-50"></div>
+                <!-- Animated Scan Line inside Bot -->
+                <div class="absolute w-full h-[2px] bg-white/20 top-0 animate-[scan_2s_linear_infinite]" style="box-shadow: 0 0 10px rgba(255,255,255,0.5);"></div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot text-white relative z-10">
+                  <path d="M12 8V4H8" class=""></path>
+                  <rect width="16" height="12" x="4" y="8" rx="2" class=""></rect>
+                  <path d="M2 14h2"></path>
+                  <path d="M20 14h2"></path>
+                  <path d="M15 13v2"></path>
+                  <path d="M9 13v2"></path>
+                </svg>
+              </div>
+
+              <!-- Status Indicator -->
+              <div class="absolute -bottom-10 flex flex-col items-center gap-1">
+                <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold">
+                  Monitoring
+                </span>
+                <div class="flex gap-1 gap-x-1 gap-y-1">
+                  <div class="animate-bounce bg-green-700 w-1 h-1 rounded-full"></div>
+                  <div class="animate-bounce bg-green-700 w-1 h-1 rounded-full" style="animation-delay: 0.2s"></div>
+                  <div class="animate-bounce bg-green-700 w-1 h-1 rounded-full" style="animation-delay: 0.4s"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Execution Node: Left (Bottom Left) -->
+            <div class="absolute left-[25%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-20">
+              <div class="flex shadow-white/5 bg-zinc-900/90 w-12 h-12 border-zinc-700 border rounded-2xl relative shadow-lg backdrop-blur-sm items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap w-[20px] h-[20px]" data-icon-replaced="true" style="width: 20px; height: 20px; color: rgb(161, 161, 170);">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" class=""></polygon>
+                </svg>
+                <div class="-bottom-8 -translate-x-1/2 text-[10px] whitespace-nowrap font-medium text-white bg-zinc-800 border-zinc-700 border rounded pt-1 pr-2 pb-1 pl-2 absolute left-1/2">
+                  Buy
+                </div>
+              </div>
+            </div>
+
+            <!-- Execution Node: Right (Bottom Right) -->
+            <div class="absolute left-[75%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-20">
+              <div class="flex shadow-white/5 bg-zinc-900/90 w-12 h-12 border-zinc-700 border rounded-2xl relative shadow-lg backdrop-blur-sm items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone-call" class="lucide lucide-phone-call" data-icon-set="lucide" data-icon-replaced="true" style="color: rgb(161, 161, 170);"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+                <div class="-bottom-8 -translate-x-1/2 text-[10px] whitespace-nowrap font-medium text-white bg-zinc-800 border-zinc-700 border rounded pt-1 pr-2 pb-1 pl-2 absolute left-1/2">
+                  Call
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-px bg-zinc-900 w-full mt-0 mb-5"></div>
+
+        <!-- NEW HEADER FOR FEATURES -->
+        <div class="flex flex-col text-center items-center">
+          
+        </div>
+
+        <!-- Bottom Grid (Spotlight Cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px overflow-hidden bg-zinc-900 border-zinc-900 border rounded-2xl mb-32 relative" id="spotlight-grid">
+  <!-- Beam Animation Element (Behind Cards) -->
+  <div class="absolute inset-[-50%] z-0 animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_320deg,rgba(255,255,255,0.2)_360deg)] opacity-50 pointer-events-none">
+  </div>
+
+  <!-- Feature 1 -->
+  <div class="group flex flex-col bg-black h-full z-10 pt-8 pr-8 pb-8 pl-8 relative gap-x-4 gap-y-4" onmousemove="this.style.setProperty('--mouse-x', (event.clientX - this.getBoundingClientRect().left) + 'px'); this.style.setProperty('--mouse-y', (event.clientY - this.getBoundingClientRect().top) + 'px');" style="--mouse-x: 157.9734878540039px; --mouse-y: 12.54736328125px">
+    <!-- Flashlight Border -->
+    <div class="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%); -webkit-mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); -webkit-mask-clip: content-box, border-box; -webkit-mask-composite: xor; mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); mask-clip: content-box, border-box; mask-composite: exclude; padding: 1px;">
+    </div>
+    <!-- Flashlight Background -->
+    <div class="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%);">
+    </div>
+
+    <div class="p-3 rounded-lg border border-zinc-800 bg-zinc-900/50 text-white mb-2 w-fit relative z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="cpu" class="lucide lucide-cpu stroke-[1.5] w-[24px] h-[24px]"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg>
+    </div>
+    <h3 class="text-lg font-normal text-white font-montserrat relative z-10">
+      AI Intelligence
+    </h3>
+    <p class="leading-relaxed text-xs text-zinc-500 font-poppins relative z-10">
+      Advanced AI analyzes context and sentiment to separate genuine buy
+      calls from casual mentions and noise. Only high-confidence signals
+      trigger execution.
+    </p>
+  </div>
+
+  <!-- Feature 2 -->
+  <div class="group relative z-10 flex flex-col gap-4 bg-black p-8 h-full" onmousemove="this.style.setProperty('--mouse-x', (event.clientX - this.getBoundingClientRect().left) + 'px'); this.style.setProperty('--mouse-y', (event.clientY - this.getBoundingClientRect().top) + 'px');" style="--mouse-x: 210.48297119140625px; --mouse-y: 4.1837158203125px;">
+    <!-- Flashlight Border -->
+    <div class="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%); -webkit-mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); -webkit-mask-clip: content-box, border-box; -webkit-mask-composite: xor; mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); mask-clip: content-box, border-box; mask-composite: exclude; padding: 1px;">
+    </div>
+    <!-- Flashlight Background -->
+    <div class="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%);">
+    </div>
+
+    <div class="z-10 text-white bg-zinc-900/50 w-fit border-zinc-800 border rounded-lg mb-2 pt-3 pr-3 pb-3 pl-3 relative">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap w-[20px] h-[20px]" data-icon-replaced="true" style161,="" 170);"="">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" class=""></polygon>
+      </svg>
+    </div>
+    <h3 class="z-10 text-lg font-normal text-white font-montserrat relative">
+      Lightning-Fast
+    </h3>
+    <p class="leading-relaxed text-xs text-zinc-500 font-poppins z-10 relative">
+      Executes with in 2 seconds while others are still offline. When
+      they finally see the call and start trading manually, you're
+      already in at optimal entry. Speed wins.
+    </p>
+  </div>
+
+  <!-- Feature 3 -->
+  <div class="group relative z-10 flex flex-col gap-4 bg-black p-8 h-full" onmousemove="this.style.setProperty('--mouse-x', (event.clientX - this.getBoundingClientRect().left) + 'px'); this.style.setProperty('--mouse-y', (event.clientY - this.getBoundingClientRect().top) + 'px');" style="--mouse-x: 17.53790283203125px; --mouse-y: 268.6382598876953px;">
+    <!-- Flashlight Border -->
+    <div class="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%); -webkit-mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); -webkit-mask-clip: content-box, border-box; -webkit-mask-composite: xor; mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); mask-clip: content-box, border-box; mask-composite: exclude; padding: 1px;">
+    </div>
+    <!-- Flashlight Background -->
+    <div class="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%);">
+    </div>
+
+    <div class="p-3 rounded-lg border border-zinc-800 bg-zinc-900/50 text-white mb-2 w-fit relative z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone-call" class="lucide lucide-phone-call stroke-[1.5]" data-icon-set="lucide" data-icon-replaced="true" style="color: rgb(255, 255, 255);"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+    </div>
+    <h3 class="text-lg font-normal text-white font-montserrat z-10 relative">
+      Stay Informed Anywhere
+    </h3>
+    <p class="leading-relaxed text-xs text-zinc-500 font-poppins z-10 relative">
+      AI-powered automation that monitors your favorite KOL calls across
+      Telegram and Twitter 24/7 and executes before manual traders
+      finish copying contracts
+    </p>
+  </div>
+
+  <!-- Feature 4 -->
+  <div class="group relative z-10 flex flex-col gap-4 bg-black p-8 h-full" onmousemove="this.style.setProperty('--mouse-x', (event.clientX - this.getBoundingClientRect().left) + 'px'); this.style.setProperty('--mouse-y', (event.clientY - this.getBoundingClientRect().top) + 'px');" style="--mouse-x: 177.1383056640625px; --mouse-y: 42.1534423828125px;">
+    <!-- Flashlight Border -->
+    <div class="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%); -webkit-mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); -webkit-mask-clip: content-box, border-box; -webkit-mask-composite: xor; mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000); mask-clip: content-box, border-box; mask-composite: exclude; padding: 1px;">
+    </div>
+    <!-- Flashlight Background -->
+    <div class="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style="background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%);">
+    </div>
+
+    <div class="p-3 rounded-lg border border-zinc-800 bg-zinc-900/50 text-white mb-2 w-fit relative z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="airplay" class="lucide lucide-airplay stroke-[1.5]" data-icon-set="lucide" data-icon-replaced="true" style="color: rgb(255, 255, 255);"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><path d="m12 15 5 6H7Z"></path></svg>
+    </div>
+    <h3 class="z-10 text-lg font-normal text-white font-montserrat relative">
+      Multi-Platform
+    </h3>
+    <p class="leading-relaxed text-xs text-zinc-500 font-poppins z-10 relative">
+      Tracks both Telegram channels and Twitter profiles from the same
+      KOL. Some post best calls on Twitter, others in Telegram. The
+      Agent captures signals from both platforms
+    </p>
+  </div>
+</div>
+        
+        <!-- NEW HOW IT WORKS SECTION -->
+        <div class="flex flex-col text-center mb-16 pt-12 relative items-center">
+          <div class="-z-10 overflow-hidden w-full h-full absolute top-0 right-0 bottom-0 left-0">
+            <div class="-translate-x-1/2 blur-[100px] bg-white/5 opacity-100 w-[600px] h-[300px] rounded-full absolute top-0 left-1/2">
+            </div>
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none">
+            </div>
+          </div>
+          <span class="uppercase text-xs font-medium text-zinc-500 tracking-[0.2em] font-poppins mb-4">
+                  How it works
+                </span>
+          <h2 class="md:text-5xl text-4xl font-medium text-white tracking-tight font-montserrat mb-6">
+  Three Steps to
+  <span class="text-zinc-400">Automation</span>
+</h2>
+          <p class="leading-relaxed md:text-base text-sm text-zinc-400 font-poppins max-w-xl mb-20">
+            Complexity abstracted into three simple steps. Configure your agent
+            once, and let it hunt for alpha opportunities continuously.
+          </p>
+
+          <style class="">
+            @keyframes beam-flow-horizontal {
+              0% { transform: translateX(-100%); opacity: 0; }
+              15% { opacity: 0; }
+              20% { opacity: 1; }
+              80% { opacity: 1; }
+              85% { opacity: 0; }
+              100% { transform: translateX(100%); opacity: 0; }
+            }
+            @keyframes beam-flow-vertical {
+              0% { transform: translateY(-100%); opacity: 0; }
+              15% { opacity: 0; }
+              20% { opacity: 1; }
+              80% { opacity: 1; }
+              85% { opacity: 0; }
+              100% { transform: translateY(100%); opacity: 0; }
+            }
+          </style>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 w-full max-w-6xl pr-4 pb-32 pl-4 relative gap-x-12 gap-y-16">
+    <style>
+      @keyframes step-pulse-1 {
+        0%, 100% { border-color: rgb(39 39 42); background-color: rgb(9 9 11); box-shadow: none; transform: scale(1); }
+        15% { border-color: rgba(255, 255, 255, 1); background-color: rgb(24 24 27); box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); transform: scale(1.05); }
+        30% { border-color: rgb(39 39 42); background-color: rgb(9 9 11); box-shadow: none; transform: scale(1); }
+      }
+      @keyframes step-pulse-2 {
+        0%, 35%, 100% { border-color: rgb(39 39 42); background-color: rgb(9 9 11); box-shadow: none; transform: scale(1); }
+        50% { border-color: rgba(255, 255, 255, 1); background-color: rgb(24 24 27); box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); transform: scale(1.05); }
+        65% { border-color: rgb(39 39 42); background-color: rgb(9 9 11); box-shadow: none; transform: scale(1); }
+      }
+      @keyframes step-pulse-3 {
+        0%, 70%, 100% { border-color: rgb(39 39 42); background-color: rgb(9 9 11); box-shadow: none; transform: scale(1); }
+        85% { border-color: rgba(255, 255, 255, 1); background-color: rgb(24 24 27); box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); transform: scale(1.05); }
+      }
+    </style>
+    
+    <!-- Connection Lines -->
+    <!-- Desktop Horizontal Line -->
+    <div class="hidden md:block absolute top-[32px] left-[16.5%] right-[16.5%] h-px bg-zinc-800/60 overflow-hidden">
+        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_15px_1px_rgba(255,255,255,0.8)]" style="animation: beam-flow-horizontal 3s linear infinite;"></div>
+    </div>
+    <!-- Mobile Vertical Line -->
+    <div class="md:hidden absolute left-1/2 top-[32px] bottom-[32px] w-px bg-zinc-800/60 -translate-x-1/2 overflow-hidden">
+        <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-white to-transparent shadow-[0_0_15px_1px_rgba(255,255,255,0.8)]" style="animation: beam-flow-vertical 3s linear infinite;"></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="flex flex-col items-center relative group">
+        <div class="relative w-16 h-16 rounded-full bg-zinc-950 border border-zinc-800 flex items-center justify-center mb-8 z-10 transition-colors duration-300" style="animation: step-pulse-1 3s linear infinite;">
+            <span class="text-white font-mono text-xl font-semibold">01</span>
+        </div>
+        <h3 class="text-2xl font-medium text-white tracking-tight font-montserrat text-center mb-4">Setup Wallet</h3>
+        <p class="leading-relaxed text-base text-zinc-500 font-poppins text-center max-w-[320px]">Generate or import a secure wallet through the agent</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex flex-col items-center relative group">
+        <div class="relative w-16 h-16 rounded-full bg-zinc-950 border border-zinc-800 flex items-center justify-center mb-8 z-10 transition-colors duration-300" style="animation: step-pulse-2 3s linear infinite;">
+            <span class="text-white font-mono text-xl font-semibold">02</span>
+        </div>
+        <h3 class="text-2xl font-medium text-white tracking-tight font-montserrat text-center mb-4">Select KOLs</h3>
+        <p class="leading-relaxed text-base text-zinc-500 font-poppins text-center max-w-[320px]">Ask Agent which Telegram channels and Twitter profiles you want the to monitor for calls.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex flex-col items-center relative group">
+        <div class="relative w-16 h-16 rounded-full bg-zinc-950 border border-zinc-800 flex items-center justify-center mb-8 z-10 transition-colors duration-300" style="animation: step-pulse-3 3s linear infinite;">
+            <span class="text-white font-mono text-xl font-semibold">03</span>
+        </div>
+        <h3 class="text-2xl font-medium text-white tracking-tight font-montserrat text-center mb-4"> Auto Execute</h3>
+        <p class="leading-relaxed text-base text-zinc-500 font-poppins text-center max-w-[320px]">Activate the agent. It runs 24/7, detecting calls and executing trades automatically while you're offline.</p>
+    </div>
+</div>
+        </div>
+        
+        <!-- NEW DAPP SECTION -->
+        <div class="flex flex-col">
+            <!-- Header -->
+            
+
+            <!-- Dapp Image with Lift Animation -->
+            <div class="relative z-10 w-full perspective-[1200px] mb-20 group" id="hero-scroll-wrapper">
+    <!-- Title Component (Part of ContainerScroll pattern) -->
+    <div class="flex flex-col items-center text-center mb-16 transform transition-all duration-700 delay-100 ease-out">
+        <h2 class="text-4xl text-white tracking-tight font-montserrat mb-2 font-medium md:text-5xl">
+    Luma AI <span class="text-zinc-500">Dapp</span>
+</h2>
+        <p class="text-sm font-medium text-zinc-400 font-poppins max-w-lg md:text-sm">Intelligence platform for KOL trading. Research KOLs, track performance, optimize results.</p>
+    </div>
+
+    <!-- 3D Rotating Container -->
+    <div class="border-[6px] border-[#222] overflow-hidden transition-all duration-100 ease-out will-change-transform origin-center transform-style-3d w-full max-w-5xl rounded-[30px] mr-auto ml-auto relative shadow-2xl" style="transform: rotateX(0deg) scale(1); opacity: 1;" id="hero-scroll-card">
+        
+        <!-- Screen Bezel/Header -->
+        <div class="flex w-full h-6 border-zinc-800/50 border-b relative items-center justify-center">
+             <div class="w-16 h-1 bg-zinc-700/50 rounded-full"></div>
+             <!-- Camera Dot -->
+             <div class="absolute right-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-zinc-800"></div>
+        </div>
+
+        <!-- Screen Content Container -->
+        <div class="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-zinc-950">
+            <!-- Preserved Background Image -->
+            <div class="absolute inset-0 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9dc40221-b966-429c-85ff-57bc64ef164d_3840w.png)] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
+            
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" style=""></div>
+
+            <!-- Content Overlay -->
+            <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-20">
+                <div class="flex items-end justify-between">
+                    <div class="max-w-xl">
+                        <div class="flex items-center gap-2 mb-4">
+                             
+                             
+                        </div>
+                        <h3 class="md:text-4xl text-shadow-lg text-3xl font-semibold text-white tracking-tight font-montserrat mb-3">Dapp V1</h3>
+                        
+                    </div>
+                    
+                    <!-- Original Fancy Button -->
+                    <button class="hidden md:inline-flex group overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] rounded-full p-[1px] relative items-center justify-center">
+                      <span class="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,#ffffff_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+                      <span class="absolute inset-0 rounded-full bg-zinc-800 transition-opacity duration-300 group-hover:opacity-0"></span>
+                      <span class="flex items-center justify-center gap-2 uppercase transition-colors duration-300 group-hover:text-white text-xs font-medium text-zinc-400 tracking-widest bg-gradient-to-b from-zinc-800 to-zinc-950 w-full h-full rounded-full py-2.5 px-6 relative shadow-[inset_0_1px_0_rgba(255,255,255,0.3)]" style="">
+                        <span class="relative z-10">Open Dapp</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 transition-transform duration-300 group-hover:translate-x-0.5">
+                          <path d="M5 12h14" class=""></path>
+                          <path d="m12 5 7 7-7 7" class=""></path>
+                        </svg>
+                      </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reflection/Shadow -->
+    <div class="-bottom-12 -translate-x-1/2 transition-all duration-300 bg-black opacity-0 w-3/4 h-12 rounded-[100%] absolute left-1/2 blur-2xl" style="opacity: 0.6; transform: translateX(-50%) scale(1);" id="hero-scroll-shadow"></div>
+
+    <script class="">
+        (function() {
+            const container = document.getElementById('hero-scroll-wrapper');
+            const card = document.getElementById('hero-scroll-card');
+            const shadow = document.getElementById('hero-scroll-shadow');
+            
+            if (!container || !card) return;
+
+            function onScroll() {
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Calculate position relative to viewport
+                // We want the effect to start when element enters viewport bottom
+                // And finish (become flat) when element is near center/top
+                
+                const elementTop = rect.top;
+                const elementHeight = rect.height;
+                const triggerPoint = windowHeight * 0.85; // Start animating when top is at 85% of viewport
+                
+                // Distance from trigger point
+                let dist = triggerPoint - elementTop;
+                
+                // Map distance to progress (0 to 1)
+                // We want it to be fully flat (1) when elementTop is around 10% of viewport
+                const finishPoint = windowHeight * 0.1;
+                const totalDistance = triggerPoint - finishPoint;
+                
+                let progress = dist / totalDistance;
+                progress = Math.max(0, Math.min(1, progress));
+                
+                // Inverse logic: 
+                // Progress 0 = Tilted (Start)
+                // Progress 1 = Flat (End)
+                
+                // Start at 45deg tilt, end at 0deg
+                const rotateX = 45 - (progress * 45);
+                
+                // Start at 0.8 scale, end at 1.0
+                const scale = 0.8 + (progress * 0.2);
+                
+                // Opacity fade in
+                const opacity = 0.5 + (progress * 0.5);
+                
+                card.style.transform = `rotateX(${rotateX}deg) scale(${scale})`;
+                card.style.opacity = opacity;
+                
+                if(shadow) {
+                    shadow.style.opacity = progress * 0.6;
+                    shadow.style.transform = `translateX(-50%) scale(${scale})`;
+                }
+            }
+            
+            window.addEventListener('scroll', () => window.requestAnimationFrame(onScroll));
+            window.addEventListener('resize', () => window.requestAnimationFrame(onScroll));
+            onScroll(); // Initial calculation
+        })();
+    </script>
+</div>
+
+            <!-- Features Grid 3x3 (6 items, 3 cols) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px overflow-hidden bg-zinc-900 border-zinc-900 border rounded-2xl relative select-none">
+    <style>
+        @keyframes draw-line {
+            0% { stroke-dashoffset: 100; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -100; }
+        }
+        @keyframes radar-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes toggle-switch {
+            0%, 20% { transform: translateX(0); }
+            50%, 70% { transform: translateX(100%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes typing-dot {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        @keyframes node-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); }
+            50% { transform: scale(1.1); box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1); }
+        }
+        @keyframes bar-fluctuate {
+            0%, 100% { width: 40%; }
+            50% { width: 70%; }
+        }
+        @keyframes bar-fluctuate-2 {
+            0%, 100% { width: 60%; }
+            50% { width: 30%; }
+        }
+    </style>
+
+    <!-- Feature 1: Dashboard -->
+    <div class="group relative flex flex-col justify-between h-full bg-black p-8 overflow-hidden hover:bg-zinc-950/50 transition-colors duration-500">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.05),_transparent_40%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div class="relative h-24 mb-6 w-full flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+            <svg width="100%" height="100%" viewBox="0 0 200 80" preserveAspectRatio="none" class="overflow-visible">
+                <path d="M0 60 Q 30 55, 50 30 T 100 4(#gradient-dash)" stroke-width="2" stroke-linecap="round" class=""></path>
+                <path d="M0 60 Q 30 55, 50 30 T 100 40 T 150 20 T 200 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-dasharray="10 10" class="opacity-50" style="animation: draw-line 3s linear infinite;"></path>
+                <defs>
+                    <linearGradient id="gradient-dash" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#3f3f46" stop-opacity="0.2"></stop>
+                        <stop offset="50%" stop-color="#ffffff" stop-opacity="0.8"></stop>
+                        <stop offset="100%" stop-color="#3f3f46" stop-opacity="0.2"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <!-- Data Points -->
+            <div class="absolute top-[30px] left-[25%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_white]"></div>
+            <div class="absolute top-[20px] left-[75%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_white]" style="animation-delay: 1.5s"></div>
+        </div>
+
+        <div class="z-10 relative">
+            
+            <h3 class="text-lg font-medium text-white font-montserrat tracking-tight mb-2">Dashboard</h3>
+            <p class="leading-relaxed text-xs text-zinc-500 font-poppins">Platform performance dashboard. Network-wide metrics showing call detection, execution volume, active users, and KOL activity.</p>
+        </div>
+    </div>
+
+    <!-- Feature 2: KOL Discovery -->
+    <div class="group relative flex flex-col justify-between h-full bg-black p-8 overflow-hidden hover:bg-zinc-950/50 transition-colors duration-500">
+        <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-b from-white/5 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+        <div class="relative h-24 mb-6 w-full flex items-center justify-center">
+            <!-- Radar Container -->
+            <div class="w-20 h-20 rounded-full border border-zinc-800 relative flex items-center justify-center bg-zinc-900/20">
+                <!-- Radar Sweep -->
+                <div class="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,rgba(255,255,255,0.1)_360deg)] w-full h-full" style="animation: radar-spin 3s linear infinite;"></div>
+                <!-- Center Dot -->
+                <div class="w-1.5 h-1.5 bg-white rounded-full shadow-lg z-10"></div>
+                <!-- Blips -->
+                <div class="absolute top-4 left-6 w-1 h-1 bg-zinc-400 rounded-full animate-ping opacity-50"></div>
+                <div class="absolute bottom-6 right-5 w-1 h-1 bg-zinc-400 rounded-full animate-ping opacity-50" style="animation-delay: 1.2s"></div>
+            </div>
+        </div>
+
+        <div class="z-10 relative">
+            
+            <h3 class="text-lg font-medium text-white font-montserrat tracking-tight mb-2">KOL Discovery</h3>
+            <p class="leading-relaxed text-xs text-zinc-500 font-poppins">Research KOLs before you follow. See their win rates and profitability. Stop losing on bad calls, follow proven performers instead.</p>
+        </div>
+    </div>
+
+    <!-- Feature 3: Ape Station -->
+    <div class="group relative flex flex-col justify-between h-full bg-black p-8 overflow-hidden hover:bg-zinc-950/50 transition-colors duration-500">
+        <div class="relative h-24 mb-6 w-full flex flex-col gap-3 items-center justify-center opacity-80">
+            <!-- Toggle 1 -->
+            <div class="flex items-center gap-3 w-32 justify-end">
+                <div class="h-1 w-8 bg-zinc-800 rounded-full"></div>
+                <div class="w-10 h-5 rounded-full bg-zinc-800 border border-zinc-700 p-0.5 relative">
+                    <div class="w-3.5 h-3.5 bg-zinc-400 rounded-full absolute left-0.5 shadow-sm" style="animation: toggle-switch 4s infinite ease-in-out;"></div>
+                </div>
+            </div>
+            <!-- Toggle 2 -->
+            <div class="flex items-center gap-3 w-32 justify-end">
+                <div class="h-1 w-12 bg-zinc-800 rounded-full"></div>
+                <div class="w-10 h-5 rounded-full bg-zinc-800 border border-zinc-700 p-0.5 relative">
+                    <div class="w-3.5 h-3.5 bg-white rounded-full absolute left-0.5 shadow-[0_0_10px_rgba(255,255,255,0.5)]" style="animation: toggle-switch 4s infinite ease-in-out reverse;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="z-10 relative">
+            
+            <h3 class="text-lg font-medium text-white font-montserrat tracking-tight mb-2">Ape Station</h3>
+            <p class="leading-relaxed text-xs text-zinc-500 font-poppins">Control everything from one place. Manage your monitored sources, adjust risk settings, and configure automation. One dashboard, complete control.</p>
+        </div>
+    </div>
+
+    <!-- Feature 4: KOLTexa -->
+    <div class="group relative flex flex-col justify-between h-full bg-black p-8 overflow-hidden hover:bg-zinc-950/50 transition-colors duration-500">
+        <div class="relative h-24 mb-6 w-full flex items-center justify-center">
+            <!-- Chat Bubble -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl rounded-bl-sm px-5 py-3 flex gap-1.5 shadow-lg relative">
+                <div class="w-1.5 h-1.5 bg-white rounded-full animate-[typing-dot_1.4s_infinite_ease-in-out_both] delay-0"></div>
+                <div class="w-1.5 h-1.5 bg-white rounded-full animate-[typing-dot_1.4s_infinite_ease-in-out_both] delay-200" style="animation-delay: 0.2s;"></div>
+                <div class="w-1.5 h-1.5 bg-white rounded-full animate-[typing-dot_1.4s_infinite_ease-in-out_both] delay-400" style="animation-delay: 0.4s;"></div>
+                
+                <!-- Floating Elements -->
+                <div class="absolute -right-6 -top-4 w-4 h-4 border border-zinc-700 rounded-full opacity-40"></div>
+                <div class="absolute -left-4 top-8 w-2 h-2 bg-zinc-800 rounded-full opacity-40"></div>
+            </div>
+        </div>
+
+        <div class="z-10 relative">
+            
+            <h3 class="text-lg font-medium text-white font-montserrat tracking-tight mb-2">KOLTexa</h3>
+            <p class="leading-relaxed text-xs text-zinc-500 font-poppins">Ask questions about KOLs and their calls through conversation. Who called this token first? Are multiple KOLs converging on something?</p>
+        </div>
+    </div>
+
+    <!-- Feature 5: Performance Tree -->
+    <div class="group relative flex flex-col justify-between h-full bg-black p-8 overflow-hidden hover:bg-zinc-950/50 transition-colors duration-500">
+    <div class="relative h-24 mb-6 w-full flex items-center justify-center">
+        <div class="relative w-full h-full">
+            <!-- SVG Layer -->
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
+                <!-- Central Symmetry Axis -->
+                <path d="M100 20 L100 80" stroke="#3f3f46" stroke-width="1" stroke-dasharray="2 4" class="opacity-20"></path>
+                
+                <!-- Connection Lines -->
+                <path d="M100 20 L50 80" stroke="#27272a" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+                <path d="M100 20 L150 80" stroke="#27272a" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+
+                <!-- Animated Data Flow Particles -->
+                <circle r="1.5" fill="white" class="drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M100 20 L50 80" keyPoints="0;1" keyTimes="0;1" calcMode="linear"></animateMotion>
+                    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite"></animate>
+                </circle>
+                <circle r="1.5" fill="white" class="drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M100 20 L150 80" keyPoints="0;1" keyTimes="0;1" calcMode="linear" begin="1.25s"></animateMotion>
+                    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="1.25s"></animate>
+                </circle>
+            </svg>
+
+            <!-- HTML Nodes for Structure -->
+            <!-- Root Node -->
+            <div class="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-zinc-900 border border-zinc-500 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.15)] z-10 flex items-center justify-center">
+                <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+            </div>
+            
+            <!-- Child Nodes (Destinations) -->
+            <div class="absolute top-[80%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-zinc-900 border border-zinc-700 rounded-full z-10 group-hover:border-zinc-500 transition-colors duration-500"></div>
+            <div class="absolute top-[80%] left-[75%] -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-zinc-900 border border-zinc-700 rounded-full z-10 group-hover:border-zinc-500 transition-colors duration-500"></div>
+        </div>
+    </div>
+
+    <div class="z-10 relative">
+        <h3 class="text-lg font-medium text-white tracking-tight font-montserrat mb-2">Performance Tree</h3>
+        <p class="leading-relaxed text-xs text-zinc-500 font-poppins">Hierarchical tree breaking down portfolio by attribution. KOLs → Calls → Trades → Results. Complete visual path showing which sources drive your profits.</p>
+    </div>
+</div>
+
+    <!-- Feature 6: Revenue Leaders -->
+    <div class="group relative flex flex-col justify-between h-full bg-black p-8 overflow-hidden hover:bg-zinc-950/50 transition-colors duration-500">
+        <div class="relative h-24 mb-6 w-full flex flex-col justify-center gap-3">
+            <!-- Animated Bars -->
+            <div class="flex items-center gap-3 w-full opacity-80">
+                <div class="text-[10px] text-zinc-600 font-mono w-4">01</div>
+                <div class="h-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.3)]" style="width: 80%; animation: bar-fluctuate 4s infinite ease-in-out;"></div>
+            </div>
+            <div class="flex items-center gap-3 w-full opacity-60">
+                <div class="text-[10px] text-zinc-600 font-mono w-4">02</div>
+                <div class="h-2 bg-zinc-700 rounded-full" style="width: 60%; animation: bar-fluctuate-2 5s infinite ease-in-out;"></div>
+            </div>
+            <div class="flex items-center gap-3 w-full opacity-40">
+                <div class="text-[10px] text-zinc-600 font-mono w-4">03</div>
+                <div class="h-2 bg-zinc-800 rounded-full w-[40%]"></div>
+            </div>
+        </div>
+
+        <div class="z-10 relative">
+            
+            <h3 class="text-lg font-medium text-white font-montserrat tracking-tight mb-2">Revenue Leaders</h3>
+            <p class="leading-relaxed text-xs text-zinc-500 font-poppins">Leaderboard ranking KOLs by trading volume their calls generate. Find sources that move real capital, not just engagement. Performance backed by on-chain data.</p>
+        </div>
+    </div>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: HOW IT WORKS -->
+    <section class="w-full max-w-7xl border-white/5 border-t mr-auto ml-auto pt-0 pr-6 pb-24 pl-6 relative">
+      
+      <!-- NEW COMPARISON SECTION -->
+      <div class="z-10 w-full max-w-5xl mt-0 mr-auto mb-32 ml-auto relative">
+  <style>
+    @keyframes scan-vertical {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+    .animate-scan {
+      animation: scan-vertical 4s linear infinite;
+    }
+  </style>
+
+  <div class="text-center mb-16 opacity-0 animate-fade-in" style="animation-delay: 0ms;">
+    <h2 class="md:text-5xl text-4xl font-medium text-white tracking-tight font-montserrat mb-4">Why Luma AI?</h2>
+  </div>
+
+  <!-- Table Container -->
+  <div class="overflow-x-auto pb-4 no-scrollbar">
+    <div class="min-w-[900px] grid grid-cols-12 relative text-sm font-sans gap-y-1">
+
+      <!-- Backdrop Card Container (Spans Columns 4-12) -->
+      <!-- Enhanced with subtle pulsing border and internal scan effect -->
+      <div class="absolute inset-y-0 right-0 left-[25%] rounded-[2.5rem] border border-white/10 bg-zinc-950 overflow-hidden z-0 shadow-2xl opacity-0 animate-fade-in group/card" style="animation-delay: 100ms;">
+        <!-- Highlight Column (Luma AI) -->
+        <div class="absolute inset-y-0 left-0 w-[55.55%] bg-gradient-to-t from-white/[0.08] via-white/[0.02] to-transparent border-r border-white/10 overflow-hidden">
+          <!-- Animated Scanning Beam -->
+          <div class="absolute inset-x-0 h-full w-full bg-gradient-to-b from-transparent via-white/[0.05] to-transparent animate-scan"></div>
+          
+          <!-- Bottom Glow -->
+          <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+          <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white/[0.05] to-transparent pointer-events-none"></div>
+        </div>
+      </div>
+
+      <!-- Header Row -->
+      <div class="col-span-12 grid grid-cols-12 relative z-10 mb-2 opacity-0 animate-fade-in" style="animation-delay: 200ms;">
+        <div class="col-span-3 p-4"></div>
+        <div class="col-span-5 p-6 px-8 flex items-center gap-3">
+          <div class="flex items-center gap-2">
+             
+             <span class="text-xl font-semibold text-white tracking-tight">Luma AI</span>
+          </div>
+        </div>
+        <div class="col-span-4 p-6 px-8 flex items-center">
+          <span class="text-zinc-400 font-semibold text-xl tracking-tight">Manual Trading</span>
+        </div>
+        <!-- Header Separator Line -->
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      </div>
+
+      <!-- Row 1: Availability -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 300ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Availability</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          24/7, never offline
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Only when you're awake and watching
+        </div>
+      </div>
+
+      <!-- Row 2: Missing Calls -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 400ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Missing Calls</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Zero missed opportunities
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Miss 60-70% (sleep, work, life)
+        </div>
+      </div>
+
+      <!-- Row 3: Multi-Platform Coverage -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 500ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Multi-Platform Coverage</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Telegram + Twitter simultaneously
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Choose one, miss the other
+        </div>
+      </div>
+
+      <!-- Row 4: Optimal Entries -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 600ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Optimal Entries</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Execute before price moves
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Always late, pay premium prices
+        </div>
+      </div>
+
+      <!-- Row 5: Lifestyle Impact -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 700ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Lifestyle Impact</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Zero screen time required
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Sacrifice life to watch channels 24/7
+        </div>
+      </div>
+
+      <!-- Row 6: Signal Detection -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 800ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Signal Detection</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          AI filters noise instantly
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Read hundreds of messages manually
+        </div>
+      </div>
+
+      <!-- Row 7: Convergence Detection -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 900ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Convergence Detection</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Spots when multiple KOLs align
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Miss coordinated signals
+        </div>
+      </div>
+
+      <!-- Row 8: Phone Alerts -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 1000ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Phone Alerts</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Voice calls when trades execute
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Check Telegram constantly or miss updates
+        </div>
+      </div>
+
+      <!-- Row 9: Risk Management -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 1100ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Risk Management</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Automated TP/SL per source
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Emotional exits, inconsistent discipline
+        </div>
+      </div>
+
+      <!-- Row 10: KOL Research -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 1200ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">KOL Research</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Dedicated Dapp with win rates + performance data
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Guess based on hype and followers
+        </div>
+      </div>
+
+      <!-- Row 11: Performance Attribution -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 border-b border-white/5 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 1300ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Performance Attribution</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Know exactly which calls made money
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Forget who called what, no tracking
+        </div>
+      </div>
+
+      <!-- Row 12: Scalability -->
+      <div class="col-span-12 grid grid-cols-12 group hover:bg-white/[0.03] transition-all duration-300 rounded-xl relative z-10 opacity-0 animate-fade-in hover:scale-[1.005] hover:shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]" style="animation-delay: 1400ms;">
+        <div class="col-span-3 flex font-medium text-zinc-400 p-4 pl-6 items-center group-hover:text-white transition-colors">Scalability</div>
+        <div class="col-span-5 py-4 px-8 flex items-center gap-3 text-zinc-200 font-medium group-hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-white"><path d="M20 6 9 17 4 12"></path></svg>
+          Track unlimited sources effortlessly
+        </div>
+        <div class="col-span-4 py-4 px-8 flex items-center gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-zinc-600"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          Limited by human attention span
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+      
+
+      
+
+      <!-- NEW PRICING SECTION -->
+      <div class="w-full max-w-5xl mt-1 mr-auto ml-auto relative">
+        <div class="flex flex-col text-center mb-16 items-center">
+          <span class="uppercase text-xs font-medium text-zinc-500 tracking-[0.2em] font-poppins mb-4">$CORTXA</span>
+          <h2 class="text-5xl font-medium text-white tracking-tight font-montserrat">Token Utility</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mr-auto ml-auto gap-x-8 gap-y-8 items-start">
+  <!-- Professional Card (Basic) -->
+  <div class="relative bg-zinc-900/20 border border-white/5 rounded-3xl p-8 overflow-hidden flex flex-col hover:bg-zinc-900/30 transition-all duration-300">
+    <div class="relative z-10 flex flex-col h-full">
+      <div class="flex justify-between items-start mb-6">
+        <h3 class="text-xl font-medium text-zinc-400 font-montserrat">Basic</h3>
+      </div>
+
+      <div class="flex items-baseline mb-4">
+        <span class="text-5xl font-semibold text-white tracking-tight font-montserrat">Free</span>
+      </div>
+
+      <button class="hover:bg-white/10 transition-all duration-200 text-sm font-medium text-white font-poppins bg-white/5 w-full border-white/10 border rounded-xl mb-8 pt-3.5 pb-3.5">
+        Basic plan applicable for all users
+      </button>
+
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-px bg-white/5 flex-1"></div>
+        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-700 font-medium">Features</span>
+        <div class="h-px bg-white/5 flex-1"></div>
+      </div>
+
+      <ul class="space-y-4 flex-1">
+        <li class="flex items-center gap-3">
+          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span class="text-sm text-zinc-400 font-poppins">Up to 5 channels (Telegram + Twitter combined)</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span class="text-sm text-zinc-400 font-poppins">Last 30 days trading history</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span class="text-sm text-zinc-400 font-poppins">Limited Dapp access</span>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+
+  <!-- Enterprise Card (Elite) -->
+  <div class="overflow-hidden flex flex-col group rounded-3xl pt-8 pr-8 pb-8 pl-8 relative">
+    <!-- Animated Border Beam (White/Grey) -->
+    <div class="absolute inset-0 -z-10 rounded-3xl p-[1px] overflow-hidden">
+      <div class="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_50%,#ffffff_100%)] opacity-100"></div>
+      <div class="absolute inset-[1px] bg-zinc-900/90 rounded-[23px] backdrop-blur-xl"></div>
+    </div>
+    
+    <!-- Dust/Texture effect overlay -->
+    <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
+    
+    <!-- Glow Effect behind card (White) -->
+    <div class="absolute inset-0 bg-white blur-[100px] opacity-10 pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col h-full">
+      <div class="flex justify-between items-start mb-6">
+        <h3 class="text-xl font-medium text-white font-montserrat">Elite</h3>
+        <span class="text-[10px] uppercase font-semibold text-white tracking-wide bg-white/10 border-white/20 border rounded-full pt-1 pr-3 pb-1 pl-3 shadow-[0_0_10px_rgba(255,255,255,0.2)]">Recommended</span>
+      </div>
+
+      <div class="flex items-baseline mb-4">
+        <span class="text-5xl font-semibold text-white tracking-tight font-montserrat">&gt;0.5%</span>
+      </div>
+
+      <button class="hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm font-semibold text-black font-poppins bg-white w-full rounded-xl mb-8 pt-3.5 pb-3.5 shadow-[0_4px_20px_rgba(255,255,255,0.15)]">
+        For user holding &gt;=0.5% supply
+      </button>
+
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-px bg-white/10 flex-1"></div>
+        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium">Features</span>
+        <div class="h-px bg-white/10 flex-1"></div>
+      </div>
+
+      <ul class="space-y-4 flex-1">
+        <li class="flex items-center gap-3">
+          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span class="text-sm text-zinc-300 font-poppins">Unlimited Telegram + Twitter monitoring</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span class="text-sm text-zinc-300 font-poppins">Complete lifetime trading history</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span class="text-sm text-zinc-300 font-poppins">Full Dapp access</span>
+        </li>
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+      </div>
+      <!-- END PRICING SECTION -->
+
+      <div class="w-full max-w-5xl mt-32 mr-auto mb-10 ml-auto relative">
+        <style class="">
+          @keyframes beam-drop {
+              0% { top: -20%; opacity: 0; }
+              50% { opacity: 1; }
+              100% { top: 120%; opacity: 0; }
+          }
+        </style>
+
+        <div class="flex flex-col text-center mb-20 pt-32 relative items-center">
+  <style>
+    @keyframes aura-particle-fall {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(350px) translateX(10px); opacity: 0; }
+    }
+  </style>
+  <!-- White Tube Light Effect -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] pointer-events-none select-none z-0">
+    <div class="flex flex-col items-center">
+      <!-- Tube Light Source -->
+      <div class="w-[60%] md:w-[80%] h-[2px] shadow-[0_0_20px_2px_rgba(255,255,255,0.5)] rounded-full bg-gradient-to-br from-transparent via-white to-transparent" style=""></div>
+
+      <!-- Volumetric Downward Glow -->
+      <div class="w-full h-[350px] bg-gradient-to-b from-white/15 via-white/5 to-transparent blur-[50px] -mt-px relative" style="mask-image: radial-gradient(ellipse at top, black 40%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse at top, black 40%, transparent 80%);">
+        <!-- Falling Particles -->
+        <div class="absolute top-0 left-[20%] w-[1px] h-[1px] bg-white rounded-full" style="animation: aura-particle-fall 3s linear infinite; animation-delay: 0s;"></div>
+        <div class="absolute top-0 left-[35%] w-[1.5px] h-[1.5px] bg-white/80 rounded-full" style="animation: aura-particle-fall 4.2s linear infinite; animation-delay: 1.5s;"></div>
+        <div class="absolute top-0 left-[50%] w-[2px] h-[2px] bg-white/60 rounded-full" style="animation: aura-particle-fall 2.8s linear infinite; animation-delay: 0.5s;"></div>
+        <div class="absolute top-0 left-[65%] w-[1px] h-[1px] bg-white/90 rounded-full" style="animation: aura-particle-fall 3.5s linear infinite; animation-delay: 2.2s;"></div>
+        <div class="absolute top-0 left-[80%] w-[1.5px] h-[1.5px] bg-white/70 rounded-full" style="animation: aura-particle-fall 5s linear infinite; animation-delay: 1.0s;"></div>
+        <div class="absolute top-0 left-[42%] w-[1px] h-[1px] bg-white rounded-full" style="animation: aura-particle-fall 3.2s linear infinite; animation-delay: 2.8s;"></div>
+        <div class="absolute top-0 left-[58%] w-[1.5px] h-[1.5px] bg-white/50 rounded-full" style="animation: aura-particle-fall 4.8s linear infinite; animation-delay: 0.2s;"></div>
+      </div>
+    </div>
+  </div>
+
+  <span class="relative z-10 uppercase text-xs font-medium text-zinc-500 tracking-[0.2em] font-poppins mb-4">
+    Future Plan
+  </span>
+  <h2 class="relative z-10 text-5xl font-medium text-white tracking-tight font-montserrat">
+    Roadmap
+  </h2>
+</div>
+
+        <div class="relative">
+          <!-- Vertical Spine -->
+          <div class="absolute left-[15px] md:left-1/2 top-0 h-full w-px bg-zinc-800 md:-translate-x-1/2 overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transparent via-white/40 to-transparent w-px" style="animation: beam-drop 3s infinite linear;"></div>
+          </div>
+
+          <!-- Phase 1 -->
+          <div class="group relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <!-- Content (Left) -->
+            <div class="pl-12 md:pl-0 md:pr-12 md:text-right">
+              <div class="flex flex-col md:items-end">
+                <span class="text-zinc-500 text-xs tracking-[0.2em] font-mono mb-2 group-hover:text-white transition-colors duration-300">
+                  PHASE 01
+                </span>
+                <h3 class="group-hover:text-white/80 transition-colors text-2xl font-normal text-white tracking-tight font-montserrat mb-4">Luma AI Agent Launch</h3>
+                <ul class="space-y-3 text-zinc-400 font-poppins text-sm">
+                  <li class="flex items-center gap-3 md:flex-row-reverse">
+                    <span class="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_white]"></span>
+                    <span class="">Telegram Agent</span>
+                  </li>
+                  <li class="flex items-center gap-3 md:flex-row-reverse">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">KOL Channel Monitoring</span>
+                  </li>
+                  <li class="flex items-center gap-3 md:flex-row-reverse">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">Automated Trade Execution</span>
+                  </li>
+                  
+                  
+                  
+                  
+                </ul>
+              </div>
+            </div>
+            <!-- Node -->
+            <div class="absolute left-[15px] md:left-1/2 -translate-x-1/2 w-8 h-8 flex items-center justify-center bg-black border border-zinc-700 rounded-full group-hover:border-white transition-colors duration-300 shadow-[0_0_20px_rgba(0,0,0,1)]">
+              <div class="w-2 h-2 bg-white rounded-full shadow-[0_0_10px_white]"></div>
+            </div>
+            <!-- Spacer (Right) -->
+            <div class="hidden md:block"></div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="group relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <!-- Spacer (Left) -->
+            <div class="hidden md:block"></div>
+            <!-- Node -->
+            <div class="absolute left-[15px] md:left-1/2 -translate-x-1/2 w-8 h-8 flex items-center justify-center bg-black border border-zinc-700 rounded-full group-hover:border-white transition-colors duration-300 shadow-[0_0_20px_rgba(0,0,0,1)]">
+              <div class="w-2 h-2 bg-zinc-600 rounded-full group-hover:bg-white transition-colors"></div>
+            </div>
+            <!-- Content (Right) -->
+            <div class="pl-12">
+              <div class="flex flex-col items-start">
+                <span class="text-zinc-500 text-xs tracking-[0.2em] font-mono mb-2 group-hover:text-white transition-colors duration-300">
+                  PHASE 02
+                </span>
+                <h3 class="group-hover:text-white/80 transition-colors text-2xl font-normal text-white tracking-tight font-montserrat mb-4">
+                  Intelligence &amp; Analytics Dapp
+                </h3>
+                <ul class="space-y-3 text-zinc-400 font-poppins text-sm">
+                  <li class="flex items-center gap-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">Ape Station</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">KOL Discovery</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">KOLTexa</span>
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="group relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Content (Left) -->
+            <div class="pl-12 md:pl-0 md:pr-12 md:text-right">
+              <div class="flex flex-col md:items-end">
+                <span class="text-zinc-500 text-xs tracking-[0.2em] font-mono mb-2 group-hover:text-white transition-colors duration-300">
+                  PHASE 03
+                </span>
+                <h3 class="group-hover:text-white/80 transition-colors text-2xl font-medium text-white tracking-tight font-montserrat mb-4">
+                  Multi-Platform Expansion
+                </h3>
+                <ul class="space-y-3 text-zinc-400 font-poppins text-sm">
+                  <li class="flex items-center gap-3 md:flex-row-reverse">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">Twitter Integration</span>
+                  </li>
+                  <li class="flex items-center gap-3 md:flex-row-reverse">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">Unified Platform Management</span>
+                  </li>
+                  <li class="flex items-center gap-3 md:flex-row-reverse">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-white/50 transition-colors"></span>
+                    <span class="">Public API</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Node -->
+            <div class="absolute left-[15px] md:left-1/2 -translate-x-1/2 w-8 h-8 flex items-center justify-center bg-black border border-zinc-700 rounded-full group-hover:border-white transition-colors duration-300 shadow-[0_0_20px_rgba(0,0,0,1)]">
+              <div class="w-2 h-2 bg-zinc-600 rounded-full group-hover:bg-white transition-colors"></div>
+            </div>
+            <!-- Spacer (Right) -->
+            <div class="hidden md:block"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New FAQs Section -->
+      <div class="w-full mt-32 relative z-10">
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-20">
+          <h2 class="text-5xl font-medium text-white tracking-tight font-montserrat mb-4">
+            FaQ
+          </h2>
+          <p class="text-lg text-zinc-400 font-poppins">
+            Your questions answered here.
+          </p>
+        </div>
+
+        <div class="flex flex-col w-full max-w-6xl border-white/5 border-t mx-auto pt-- gap-x-12 gap-y-12 items-center">
+          <!-- Content -->
+          <div class="flex flex-col gap-8 text-left w-full max-w-3xl gap-x-8 gap-y-8">
+            <div class="flex items-center gap-3 mb-2">
+              
+              
+            </div>
+
+            <!-- Questions List -->
+            <div class="flex flex-col gap-4" id="faq-container">
+              <!-- Q1 -->
+              <div class="faq-item relative group rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer" data-faq="1" onclick="toggleFaq(this)">
+                <!-- Beam Border -->
+                <div class="beam-border absolute inset-0 p-[1px] opacity-0 transition-opacity duration-300 pointer-events-none">
+                  <div class="absolute inset-[-100%] animate-beam-spin bg-[conic-gradient(from_0deg,transparent_0_340deg,#2dd4bf_360deg)]"></div>
+                  <div class="absolute inset-[1px] bg-black rounded-2xl"></div>
+                </div>
+                <!-- Inner Border for visual consistency when beam inactive -->
+                <div class="absolute inset-0 border border-white/5 rounded-2xl pointer-events-none"></div>
+
+                <div class="z-10 pt-6 pr-6 pb-6 pl-6 relative">
+  <div class="flex justify-between items-center select-none">
+    <h3 class="text-lg font-medium text-white font-montserrat">
+       Do I need to hold tokens to use Luma AI?
+    </h3>
+    <div class="text-zinc-500">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="minus-circle" class="lucide lucide-minus-circle icon-minus hidden w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus-circle" class="lucide lucide-plus-circle icon-plus w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+    </div>
+  </div>
+  <div class="faq-content hidden mt-4 text-base text-zinc-400 font-poppins leading-relaxed">
+    No. Anyone can use Luma AI for free with basic features, monitor up to 5 KOL sources, view last 30 days of trades, and access core bot functions.
+  </div>
+</div>
+              </div>
+
+              <!-- Q2 -->
+              <div class="faq-item relative group rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer" data-faq="2" onclick="toggleFaq(this)">
+                <!-- Beam Border -->
+                <div class="beam-border absolute inset-0 p-[1px] opacity-0 transition-opacity duration-300 pointer-events-none">
+                  <div class="absolute inset-[-100%] animate-beam-spin bg-[conic-gradient(from_0deg,transparent_0_340deg,#2dd4bf_360deg)]"></div>
+                  <div class="absolute inset-[1px] bg-black rounded-2xl"></div>
+                </div>
+                <!-- Inner Border -->
+                <div class="absolute inset-0 border border-white/5 rounded-2xl pointer-events-none"></div>
+
+                <div class="z-10 pt-6 pr-6 pb-6 pl-6 relative">
+  <div class="flex select-none items-center justify-between">
+    <h3 class="text-lg font-medium text-white font-montserrat">
+      Which chains does Luma AI support?
+    </h3>
+    <div class="text-zinc-500">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus-circle" class="lucide lucide-plus-circle icon-plus w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="minus-circle" class="lucide lucide-minus-circle icon-minus hidden w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
+    </div>
+  </div>
+  <div class="faq-content hidden mt-4 text-base text-zinc-400 font-poppins leading-relaxed">
+    Currently RobinHood only. EVM chains (Ethereum, Base, Arbitrum, etc.) are planned for future releases.
+  </div>
+</div>
+              </div>
+
+              <!-- Q3 -->
+              <div class="faq-item relative group rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer" data-faq="3" onclick="toggleFaq(this)">
+                <!-- Beam Border -->
+                <div class="beam-border absolute inset-0 p-[1px] opacity-0 transition-opacity duration-300 pointer-events-none">
+                  <div class="absolute inset-[-100%] animate-beam-spin bg-[conic-gradient(from_0deg,transparent_0_340deg,#2dd4bf_360deg)]"></div>
+                  <div class="absolute inset-[1px] bg-black rounded-2xl"></div>
+                </div>
+                <!-- Inner Border -->
+                <div class="absolute inset-0 border border-white/5 rounded-2xl pointer-events-none"></div>
+
+                <div class="z-10 pt-6 pr-6 pb-6 pl-6 relative">
+  <div class="flex justify-between items-center select-none">
+    <h3 class="text-lg font-medium text-white font-montserrat">
+      Can I customize settings for different KOLs?
+    </h3>
+    <div class="text-zinc-500">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus-circle" class="lucide lucide-plus-circle icon-plus w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="minus-circle" class="lucide lucide-minus-circle icon-minus hidden w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
+    </div>
+  </div>
+  <div class="faq-content hidden mt-4 text-base text-zinc-400 font-poppins leading-relaxed">
+    Yes, completely. Each Telegram channel and Twitter profile you monitor has independent settings. You can set different auto-buy amounts, take-profit levels, and stop-loss percentages per source
+  </div>
+</div>
+              </div>
+
+              <!-- Q4 -->
+              <div class="faq-item relative group rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer" data-faq="4" onclick="toggleFaq(this)">
+                <!-- Beam Border -->
+                <div class="beam-border absolute inset-0 p-[1px] opacity-0 transition-opacity duration-300 pointer-events-none">
+                  <div class="absolute inset-[-100%] animate-beam-spin bg-[conic-gradient(from_0deg,transparent_0_340deg,#2dd4bf_360deg)]"></div>
+                  <div class="absolute inset-[1px] bg-black rounded-2xl"></div>
+                </div>
+                <!-- Inner Border -->
+                <div class="absolute inset-0 border border-white/5 rounded-2xl pointer-events-none"></div>
+
+                <div class="z-10 pt-6 pr-6 pb-6 pl-6 relative">
+  <div class="flex justify-between items-center select-none">
+    <h3 class="text-lg font-medium text-white font-montserrat">
+      What happens if I'm offline or my phone is off?
+    </h3>
+    <div class="text-zinc-500">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus-circle" class="lucide lucide-plus-circle icon-plus w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="minus-circle" class="lucide lucide-minus-circle icon-minus hidden w-5 h-5 stroke-[1.5]"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
+    </div>
+  </div>
+  <div class="faq-content hidden mt-4 text-base text-zinc-400 font-poppins leading-relaxed">
+    The agent keeps working. It runs 24/7 on our servers, not your phone. Close Telegram, turn off your device, go to sleep—monitoring and execution continue automatically. You'll receive notifications when trades happen, but you don't need to be online for the agent to work. That's the whole point.
+  </div>
+</div>
+              </div>
+
+              <!-- Q5 -->
+              <div class="faq-item relative group rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer" data-faq="5" onclick="toggleFaq(this)">
+                <!-- Beam Border -->
+                <div class="beam-border absolute inset-0 p-[1px] opacity-0 transition-opacity duration-300 pointer-events-none">
+                  <div class="absolute inset-[-100%] animate-beam-spin bg-[conic-gradient(from_0deg,transparent_0_340deg,#2dd4bf_360deg)]"></div>
+                  <div class="absolute inset-[1px] bg-black rounded-2xl"></div>
+                </div>
+                <!-- Inner Border -->
+                <div class="absolute inset-0 border border-white/5 rounded-2xl pointer-events-none"></div>
+
+                
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function toggleFaq(clickedItem) {
+                const allItems = document.querySelectorAll('.faq-item');
+                const isActive = clickedItem.classList.contains('faq-active');
+
+                // Close all items and remove beam animation
+                allItems.forEach(item => {
+                    const beam = item.querySelector('.beam-border');
+                    const content = item.querySelector('.faq-content');
+                    const plus = item.querySelector('.icon-plus');
+                    const minus = item.querySelector('.icon-minus');
+
+                    item.classList.remove('faq-active', 'bg-zinc-900/30');
+                    if (beam) beam.classList.add('opacity-0');
+                    if (content) content.classList.add('hidden');
+                    if (plus) plus.classList.remove('hidden');
+                    if (minus) minus.classList.add('hidden');
+                });
+
+                // If the clicked item was not active, activate it
+                if (!isActive) {
+                    const beam = clickedItem.querySelector('.beam-border');
+                    const content = clickedItem.querySelector('.faq-content');
+                    const plus = clickedItem.querySelector('.icon-plus');
+                    const minus = clickedItem.querySelector('.icon-minus');
+
+                    clickedItem.classList.add('faq-active', 'bg-zinc-900/30');
+                    if (beam) beam.classList.remove('opacity-0');
+                    if (content) content.classList.remove('hidden');
+                    if (plus) plus.classList.add('hidden');
+                    if (minus) minus.classList.remove('hidden');
+                }
+            }
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <section class="overflow-hidden w-full border-white/5 border-t pt-32 pb-0 relative">
+      <!-- Horizon Glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-white/5 blur-[100px] rounded-full pointer-events-none -translate-y-1/2"></div>
+
+      <!-- Content Container -->
+      <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 mb-24">
+        <!-- Icons Arc -->
+        <div class="relative flex items-center justify-center gap-6 mb-12 h-20">
+          <!-- Simple manual offsets for arc effect -->
+          <div class="transform translate-y-6 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="color: rgb(255, 255, 255); width: 40px; height: 40px" class="w-[40px] h-[40px]" data-simple-icons="polygon" data-icon-set="simple-icons" data-icon-replaced="true" stroke-width="2"><path fill="#ffffff" d="m17.82 16.342l5.692-3.287A.98.98 0 0 0 24 12.21V5.635a.98.98 0 0 0-.488-.846l-5.693-3.286a.98.98 0 0 0-.977 0L11.15 4.789a.98.98 0 0 0-.489.846v11.747L6.67 19.686l-3.992-2.304v-4.61l3.992-2.304l2.633 1.52V8.896L7.158 7.658a.98.98 0 0 0-.977 0L.488 10.945a.98.98 0 0 0-.488.846v6.573a.98.98 0 0 0 .488.847l5.693 3.286a.98.98 0 0 0 .977 0l5.692-3.286a.98.98 0 0 0 .489-.846V6.618l.072-.041l3.92-2.263l3.99 2.305v4.609l-3.99 2.304l-2.63-1.517v3.092l2.14 1.236a.98.98 0 0 0 .978 0z" class=""></path></svg>
+          </div>
+          <div class="transform translate-y-2 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" class="" style="" data-icon-set="simple-icons" data-simple-icons="ethereum">
+              <path fill="currentColor" d="M11.944 17.97L4.58 13.62L11.943 24l7.37-10.38l-7.372 4.35zM12.056 0L4.69 12.223l7.365 4.354l7.365-4.35z" class=""></path>
+            </svg>
+          </div>
+          <div class="transform -translate-y-2 bg-black z-10 border-white/20 border rounded-full pt-2 pr-2 pb-2 pl-2 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="width: 32px; height: 32px; color: rgb(255, 255, 255)" class="w-[32px] h-[32px]" data-simple-icons="solana" data-icon-set="simple-icons" data-icon-replaced="true" stroke-width="2">
+              <path fill="#ffffff" d="m23.876 18.031l-3.962 4.14a.9.9 0 0 1-.306.21a.9.9 0 0 1-.367.074H.46a.47.47 0 0 1-.252-.073a.45.45 0 0 1-.17-.196a.44.44 0 0 1-.031-.255a.44.44 0 0 1 .117-.23l3.965-4.139a.9.9 0 0 1 .305-.21a.9.9 0 0 1 .366-.075h18.78a.47.47 0 0 1 .252.074a.45.45 0 0 1 .17.196a.44.44 0 0 1 .031.255a.44.44 0 0 1-.117.23m-3.962-8.335a.9.9 0 0 0-.306-.21a.9.9 0 0 0-.367-.075H.46a.47.47 0 0 0-.252.073a.45.45 0 0 0-.17.197a.44.44 0 0 0-.031.254a.44.44 0 0 0 .117.23l3.965 4.14a.9.9 0 0 0 .305.21a.9.9 0 0 0 .366.074h18.78a.47.47 0 0 0 .252-.073a.45.45 0 0 0 .17-.196a.44.44 0 0 0 .031-.255a.44.44 0 0 0-.117-.23zM.46 6.723h18.782a.9.9 0 0 0 .367-.075a.9.9 0 0 0 .306-.21l3.962-4.14a.44.44 0 0 0 .117-.23a.44.44 0 0 0-.032-.254a.45.45 0 0 0-.17-.196a.47.47 0 0 0-.252-.073H4.76a.9.9 0 0 0-.366.074a.9.9 0 0 0-.305.21L.125 5.97a.44.44 0 0 0-.117.23a.44.44 0 0 0 .03.254a.45.45 0 0 0 .17.196a.47.47 0 0 0 .252.074z" class=""></path>
+            </svg>
+          </div>
+          <div class="transform translate-y-2 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" class="" style="" data-icon-set="simple-icons" data-simple-icons="binance">
+              <path fill="currentColor" d="m16.624 13.92l2.718 2.716l-7.353 7.353l-7.353-7.352l2.717-2.717l4.636 4.66zm4.637-4.636L24 12l-2.715 2.716L18.568 12zm-9.272 0l2.716 2.692l-2.717 2.717L9.272 12zm-9.273 0L5.41 12l-2.692 2.692L0 12zM11.99.012l7.35 7.328l-2.717 2.715L11.99 5.42l-4.636 4.66l-2.717-2.716z" class=""></path>
+            </svg>
+          </div>
+          <div class="transform translate-y-6 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" class="" style="" data-icon-set="simple-icons" data-simple-icons="tether">
+              <path fill="currentColor" d="M18.754 10.518c0 .625-2.238 1.148-5.238 1.28l.002.001a23 23 0 0 1-1.5.033c-.779 0-1.33-.023-1.524-.032c-3.006-.133-5.25-.656-5.25-1.282s2.244-1.15 5.25-1.284v2.044c.196.015.759.048 1.537.048c.933 0 1.4-.04 1.485-.047V9.236c3 .133 5.238.657 5.238 1.282m5.19.546L12.124 22.39a.18.18 0 0 1-.249 0L.056 11.064a.18.18 0 0 1-.038-.208l4.376-9.192a.18.18 0 0 1 .163-.103h14.888a.18.18 0 0 1 .16.103l4.377 9.192a.18.18 0 0 1-.038.208m-4.478-.404c0-.806-2.552-1.48-5.947-1.637V7.195h4.186v-2.79H6.308v2.79h4.185v1.829c-3.402.156-5.96.83-5.96 1.637c0 .808 2.558 1.48 5.96 1.638v5.862h3.025v-5.864c3.394-.157 5.948-.83 5.948-1.637" class=""></path>
+            </svg>
+          </div>
+
+          <!-- The Horizon Line behind icons (Arc) -->
+          <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[600px] border-t border-white/10 rounded-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none -z-10 blur-sm"></div>
+        </div>
+
+        <h2 class="md:text-5xl lg:text-6xl text-4xl font-semibold text-white tracking-tighter font-montserrat mb-6">The Future of
+  <span class="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">KOL</span> Trading
+</h2>
+        <p class="md:text-base text-sm text-zinc-400 font-poppins max-w-lg mb-10">Never miss another call while you sleep, work, or live your life. Automated KOL trading that actually works. Configure once, trade forever.</p>
+
+        <form class="flex w-full max-w-[420px] items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 p-1.5 pl-5 shadow-[0_0_40px_-10px_rgba(255,255,255,0.1)] backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-zinc-900/70 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)]" onsubmit="event.preventDefault()">
+  <input type="email" placeholder="Enter your feedback" class="flex-1 placeholder-zinc-500 focus:outline-none text-sm text-white font-poppins bg-transparent">
+  <button type="submit" class="group relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full p-[1px] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+    <span class="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,#ffffff_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+    <span class="absolute inset-0 rounded-full bg-zinc-800 transition-opacity duration-300 group-hover:opacity-0"></span>
+    <span class="relative flex h-full w-full items-center justify-center gap-2 rounded-full bg-gradient-to-b from-zinc-800 to-zinc-950 px-6 py-2.5 text-xs font-medium uppercase tracking-widest text-zinc-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] transition-colors duration-300 group-hover:text-white">
+      <span class="font-poppins">send</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+        <path d="M5 12h14" class=""></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+    </span>
+  </button>
+</form>
+      </div>
+
+      <!-- Footer Links & Bottom -->
+      <div class="grid grid-cols-2 md:grid-cols-3 max-w-7xl mr-auto mb-20 ml-auto pr-6 pl-6 gap-x-12 gap-y-12 text-center">
+        
+        <div class="">
+          <h4 class="font-medium text-white font-poppins mb-4">Navigate</h4>
+          <ul class="space-y-3 text-sm text-zinc-500 font-poppins">
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">Dapp</a>
+            </li>
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">Setup Guide</a>
+            </li>
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">Token Utility</a>
+            </li>
+            
+          </ul>
+        </div>
+        <div class="">
+          <h4 class="text-white font-medium mb-4 font-poppins">Resources</h4>
+          <ul class="space-y-3 text-sm text-zinc-500 font-poppins">
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">
+                Documentation
+              </a>
+            </li>
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">Tutorial </a>
+            </li>
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">Blog</a>
+            </li>
+            
+          </ul>
+        </div>
+        <div class="">
+          <h4 class="font-medium text-white font-poppins mb-4">Official Links</h4>
+          <ul class="space-y-3 text-sm text-zinc-500 font-poppins">
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">Telegram</a>
+            </li>
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">X (Twitter)</a>
+            </li>
+            <li class="">
+              <a href="#" class="hover:text-white transition-colors">Luma AI Agent</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- Socials Row -->
+      <div class="flex md:mb-20 max-w-7xl border-white/5 border-t mr-auto mb-40 ml-auto pt-8 pr-6 pl-6 items-center justify-between">
+        <span class="text-xs text-slate-50 z-[9999] absolute">
+          © 2026 Luma AI Inc.
+        </span>
+      </div>
+
+      <!-- Big Text -->
+      <div class="flex overflow-hidden select-none w-full z-[100] pointer-events-none absolute bottom-0 justify-center">
+        <h1 class="text-[18vw] leading-[0.75] font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-800 to-black font-montserrat tracking-tighter opacity-50 translate-y-[20%]">
+          LUMA AI
+        </h1>
+      </div>
+    </section>
+
+    <!-- Planetary Horizon Effect (Original) -->
+    <div class="fixed bottom-[-25%] left-1/2 -translate-x-1/2 w-[120%] h-[40vh] bg-white rounded-[100%] blur-[60px] opacity-5 pointer-events-none z-0 mix-blend-soft-light"></div>
+
+    <script>
+      // Lucide Icons
+      lucide.createIcons();
+
+      // Counter Animation
+      document.addEventListener("DOMContentLoaded", () => {
+          const counters = document.querySelectorAll('.counter');
+
+          const animateCounters = () => {
+              counters.forEach(counter => {
+                  const target = parseFloat(counter.getAttribute('data-target'));
+                  const duration = 2000;
+                  const start = 0;
+                  const startTime = performance.now();
+
+                  function updateCount(currentTime) {
+                      const elapsed = currentTime - startTime;
+                      const progress = Math.min(elapsed / duration, 1);
+                      const ease = (progress === 1) ? 1 : 1 - Math.pow(2, -10 * progress);
+                      const current = start + (target - start) * ease;
+
+                      if (target % 1 !== 0) {
+                          counter.innerText = current.toFixed(1);
+                      } else {
+                          counter.innerText = Math.floor(current);
+                      }
+
+                      if (progress < 1) {
+                          requestAnimationFrame(updateCount);
+                      } else {
+                          counter.innerText = target;
+                      }
+                  }
+                  requestAnimationFrame(updateCount);
+              });
+          };
+          setTimeout(animateCounters, 800);
+      });
+
+      // Spotlight Effect Logic
+      function handleMouseMove(e) {
+          const card = e.currentTarget;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+      }
+    </script>
+  
+</body></html>

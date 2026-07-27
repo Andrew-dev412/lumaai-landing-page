@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hide Unicorn Studio animation overflow */
+.aura-background-component,
+.aura-background-component * {
+  overflow: hidden !important;
+}
+
+/* Clip the Unicorn Studio canvas to viewport */
+[data-us-project] {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Center the Unicorn Studio canvas */
+[data-us-project] canvas {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll offset for fixed navbar */
+[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Specific scroll offset for features/Agent section */
+#features {
+  scroll-margin-top: 120px;
+}
+
+/* Scroll offsets for other sections */
+#why {
+  scroll-margin-top: 120px;
+}
+
+#crtxa {
+  scroll-margin-top: 120px;
+}
+
+#faqs {
+  scroll-margin-top: 120px;
+}
+
+#links {
+  scroll-margin-top: 120px;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.4) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-numbers {
+  background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.4) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animation clip - responsive */
+.animation-clip-container {
+  clip-path: inset(0 0 0 0);
+}
+
+.animation-scale {
+  transform: scale(1);
+  transform-origin: center center;
+}
+
+/* Desktop only - clip the white lines */
+@media (min-width: 768px) {
+  .animation-clip-container {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .animation-scale {
+    transform: scale(1.08);
+  }
+}

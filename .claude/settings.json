@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"typecheck: $?\")",
+      "Bash(curl -s -o /dev/null -w \"luma-logo.png : %{http_code}  %{size_download} bytes  %{content_type}\\\\n\" http://localhost:5173/luma-logo.png)",
+      "Bash(curl -s -o /dev/null -w \"favicon.png   : %{http_code}  %{size_download} bytes  %{content_type}\\\\n\" http://localhost:5173/favicon.png)",
+      "Bash(curl -s \"http://localhost:5173/src/App.tsx\")",
+      "Bash(node -e ' *)",
+      "Bash(grep -rn '\\\\bSOL\\\\b\\\\|$SOL\\\\|sol_bot\\\\|pump\\\\b' src/App.tsx)"
+    ]
+  }
+}
