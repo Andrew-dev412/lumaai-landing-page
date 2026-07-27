@@ -19,7 +19,7 @@ Source: `src/App.tsx` and `index.html`.
 
 **Brand:** Luma AI
 
-**Menu items:** Home · Agent · Setup · Find · Dapp · Why? · $CRTXA · Roadmap · FAQs · Links
+**Menu items:** Home · Agent · Setup · Find · Dapp · Why? · $LUMA · Roadmap · FAQs · Links
 
 **Primary call to action:** Launch Agent
 
@@ -199,7 +199,7 @@ Source: `src/App.tsx` and `index.html`.
 
 ## Token Utility
 
-**Eyebrow:** $CXA
+**Eyebrow:** $LUMA
 
 **Heading:**
 > Token Utility
@@ -306,7 +306,8 @@ Features:
 
 ### Socials
 - Telegram
-- X (Twitter)
+- X (Twitter) — https://x.com/uselumaai
+- Website — https://uselumaai.xyz/
 
 **Copyright:** © 2026 Luma AI Inc.
 

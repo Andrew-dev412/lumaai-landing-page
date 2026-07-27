@@ -205,8 +205,8 @@ const App: React.FC = () => {
         <a href="#why" className="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
           Why?
         </a>
-        <a href="#crtxa" className="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
-          $CRTXA
+        <a href="#luma" className="transition-colors hover:bg-white/10 hover:text-white text-xs font-medium text-zinc-400 font-poppins rounded-full pt-1.5 pr-3 pb-1.5 pl-3">
+          $LUMA
         </a>
         <a href="#roadmap" className="rounded-full px-3 py-1.5 text-xs font-medium text-zinc-400 transition-colors hover:bg-white/10 hover:text-white font-poppins">
           Roadmap
@@ -313,8 +313,8 @@ const App: React.FC = () => {
           <a href="#why" onClick={() => setMobileMenuOpen(false)} className="transition-colors hover:bg-white/10 hover:text-white text-sm font-medium text-zinc-400 font-poppins rounded-lg py-3 px-4">
             Why?
           </a>
-          <a href="#crtxa" onClick={() => setMobileMenuOpen(false)} className="transition-colors hover:bg-white/10 hover:text-white text-sm font-medium text-zinc-400 font-poppins rounded-lg py-3 px-4">
-            $CRTXA
+          <a href="#luma" onClick={() => setMobileMenuOpen(false)} className="transition-colors hover:bg-white/10 hover:text-white text-sm font-medium text-zinc-400 font-poppins rounded-lg py-3 px-4">
+            $LUMA
           </a>
           <a href="#roadmap" onClick={() => setMobileMenuOpen(false)} className="transition-colors hover:bg-white/10 hover:text-white text-sm font-medium text-zinc-400 font-poppins rounded-lg py-3 px-4">
             Roadmap
@@ -1532,8 +1532,8 @@ const App: React.FC = () => {
 
       {/* NEW PRICING SECTION */}
       <div className="w-full max-w-5xl pt-32 mr-auto ml-auto relative">
-        <div id="crtxa" className="flex flex-col text-center mb-16 items-center">
-          <span className="uppercase text-xs font-medium text-zinc-500 tracking-[0.2em] font-poppins mb-4">$CXA</span>
+        <div id="luma" className="flex flex-col text-center mb-16 items-center">
+          <span className="uppercase text-xs font-medium text-zinc-500 tracking-[0.2em] font-poppins mb-4">$LUMA</span>
           <h2 className="text-5xl font-medium text-white tracking-tight font-montserrat">Token <span className="text-zinc-500">Utility</span></h2>
         </div>
 
@@ -2092,7 +2092,7 @@ const App: React.FC = () => {
               <a href="#setup" className="hover:text-white transition-colors">Setup Guide</a>
             </li>
             <li className="">
-              <a href="#crtxa" className="hover:text-white transition-colors">Token Utility</a>
+              <a href="#luma" className="hover:text-white transition-colors">Token Utility</a>
             </li>
           </ul>
         </div>
@@ -2114,7 +2114,10 @@ const App: React.FC = () => {
               <a href="https://t.me/Cortexatrade" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram</a>
             </li>
             <li className="">
-              <a href="https://x.com/cortexatrade?s=21" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X (Twitter)</a>
+              <a href="https://x.com/uselumaai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X (Twitter)</a>
+            </li>
+            <li className="">
+              <a href="https://uselumaai.xyz/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Website</a>
             </li>
           </ul>
         </div>
